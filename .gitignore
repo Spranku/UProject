@@ -73,6 +73,8 @@ mono_crash.*
 *.unitypackage.meta
 *.app
 
+/Assets/Versatile Studio Assets
+
 # Crashlytics generated file
 crashlytics-build.properties
 
