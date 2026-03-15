@@ -74,6 +74,8 @@ mono_crash.*
 *.app
 
 /Assets/Versatile Studio Assets
+/Assets/TextMesh Pro
+/Assets/PNG
 
 # Crashlytics generated file
 crashlytics-build.properties
