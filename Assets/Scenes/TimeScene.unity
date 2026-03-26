@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 56591839}
   - component: {fileID: 56591838}
   - component: {fileID: 56591837}
+  - component: {fileID: 56591841}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -222,6 +223,30 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &56591841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56591836}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9834bb9f63a7ef64298f6c359ba6d88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TimeHandler
+  firstNum: {fileID: 1133192500}
+  secondNum: {fileID: 1521676290}
+  thirdNum: {fileID: 1535817515}
+  losewinText: {fileID: 1859986212}
+  drillButton: {fileID: 1986199423}
+  hammerButton: {fileID: 441039105}
+  pickButton: {fileID: 1592041022}
+  LoseWinWidget: {fileID: 1985166640}
+  CurrentTimerText: {fileID: 483447118}
+  timerSec: 60
+  PinsVector: {x: 7, y: 3, z: 3}
+  VectotToWin: {x: 5, y: 5, z: 5}
 --- !u!1 &107529553
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +748,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 441039106}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 56591841}
+        m_TargetAssemblyTypeName: TimeHandler, Assembly-CSharp
+        m_MethodName: OnHammerButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &441039106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -983,7 +1020,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 624794141}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 56591841}
+        m_TargetAssemblyTypeName: TimeHandler, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &624794141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,7 +2212,7 @@ GameObject:
   - component: {fileID: 1521676291}
   - component: {fileID: 1521676290}
   m_Layer: 5
-  m_Name: TMP_Middle
+  m_Name: TMP_MiddlePin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2511,7 +2560,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1592041023}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 56591841}
+        m_TargetAssemblyTypeName: TimeHandler, Assembly-CSharp
+        m_MethodName: OnPickButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1592041023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2627,7 +2688,7 @@ GameObject:
   - component: {fileID: 1859986213}
   - component: {fileID: 1859986212}
   m_Layer: 5
-  m_Name: TMP_LooseWin
+  m_Name: TMP_LoseWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2752,51 +2813,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1859986210}
   m_CullTransparentMesh: 1
---- !u!1 &1898650314
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1898650316}
-  - component: {fileID: 1898650315}
-  m_Layer: 0
-  m_Name: TimeHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1898650315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898650314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9834bb9f63a7ef64298f6c359ba6d88d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TimeHandler
-  timerText: {fileID: 0}
---- !u!4 &1898650316
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1898650314}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 979.7476, y: 563.95776, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961823532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2886,7 +2902,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1985166641}
   m_Layer: 5
-  m_Name: LooseWin
+  m_Name: LoseWin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2995,7 +3011,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1986199424}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 56591841}
+        m_TargetAssemblyTypeName: TimeHandler, Assembly-CSharp
+        m_MethodName: OnDrillButtonClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1986199424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3040,6 +3068,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 1368316127}
   - {fileID: 1297288804}
-  - {fileID: 1898650316}
   - {fileID: 56591840}
   - {fileID: 1961823535}
