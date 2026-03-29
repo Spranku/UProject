@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public ImagerTimer HarvestTimer;
     public ImagerTimer FoodTimer;
 
+    /* Sound */
+    public AudioSource ClickSound;
+    bool isSoundEnabled = true;
+
     /* Screens */
     public GameObject GameOverScreen;
     public GameObject GameWinScreen;
@@ -256,6 +260,11 @@ public class GameManager : MonoBehaviour
         countSafeCycles.text = countSafeRounds.ToString();
     }
 
+    public void PlaySoundClick()
+    {
+        ClickSound.Play();
+    }
+
     public void RetryGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -275,16 +284,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    public void SetSoundEnabled(bool bIsEnable)
+    public void SetSoundEnabled()
     {
-        if(bIsEnable)
-        {
-            Debug.Log("Enable");
-        }
-        else
-        {
-            Debug.Log("Disable");
-        }
+        isSoundEnabled = !isSoundEnabled;
+        AudioListener.volume = isSoundEnabled ? 1.0f : 0.0f;
     }
 
     public void ExitToMainMenu()
