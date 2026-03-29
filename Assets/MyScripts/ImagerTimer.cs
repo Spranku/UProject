@@ -5,6 +5,7 @@ public class ImagerTimer : MonoBehaviour
 {
 
     public float MaxTime;
+    public bool Tick;
 
     private Image img;
     private float currentTime;
@@ -19,10 +20,16 @@ public class ImagerTimer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Tick = false;
         currentTime -= Time.deltaTime;
 
         if (currentTime <= 0)
+        {
+            /* Send info to GameManager: finish timer, his time = 0 */
+            Tick = true;  
+
             currentTime = MaxTime;
+        }
 
         img.fillAmount = currentTime / MaxTime;
     }
