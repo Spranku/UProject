@@ -3,6 +3,7 @@ using Unity.VisualScripting;
 using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -24,8 +25,9 @@ public class GameManager : MonoBehaviour
     /* Buttons */
     public Button hirePersonButton;
     public Button hireWarrionButton;
+    public Button retryGame;
 
-    /* */
+    /*  */
     public int minedBreadPeople;
     public int consumptionBreadWarrior;
     public int peopleCost;
@@ -37,6 +39,11 @@ public class GameManager : MonoBehaviour
     public TMP_Text resourceBread;
     public TMP_Text countEnemiesSoon;
     public TMP_Text countSafeCycles;
+    /* For final stats */
+    public TMP_Text raidsSurvived;
+    public TMP_Text producedBread;
+    public TMP_Text peopleSurvived;
+    public TMP_Text warriorSurvived;
 
     public float peopleCreateTime;
     public float warriorCreateTime;
@@ -44,6 +51,9 @@ public class GameManager : MonoBehaviour
     public int countEnemyWarriors;
     public int countSafeRounds;
     public int nextRaid;
+
+    /* Final stats variables */
+    private int countSurivedRaids;
 
     /* Timer variables */
     private float peopleTimer = -2;
@@ -56,7 +66,11 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Time.timeScale = 1;
         GameOverScreen.SetActive(false);
+
+        /* Clear stats */
+        countSurivedRaids = 0;
 
         /* Pre init count of enemies for next raid */
         nextRaid += countEnemyWarriors;
@@ -78,6 +92,7 @@ public class GameManager : MonoBehaviour
             /* Timer of next raid */
             if (raidTimer <= 0)
             {
+                countSurivedRaids += 1;
                 raidTimer = maxTimeBeforeNexRaid;
                 warriorCount -= nextRaid;
                 nextRaid += countEnemyWarriors;
@@ -129,7 +144,6 @@ public class GameManager : MonoBehaviour
         {
             /* Return default value for people timer img */
             PeopleTimerImg.fillAmount = 1;
-            //hirePersonButton.interactable = true; /// ENABLE PEOPLE BUTTON
             createPeoplePressed = false;
             TryToEnableButton(hirePersonButton);
             peopleCount += 1;
@@ -147,8 +161,6 @@ public class GameManager : MonoBehaviour
         {
             /* Return default value for people timer img */
             WarriorTimerImg.fillAmount = 1;
-            /* Checl current resource before enable button */
-            ///hireWarrionButton.interactable = true; /// ENABLE WARRIOR BUTTON
             createWarriorPressed = false;
             TryToEnableButton(hireWarrionButton);
             warriorCount += 1;
@@ -162,6 +174,21 @@ public class GameManager : MonoBehaviour
         {
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
+
+            /* Update stats */
+            raidsSurvived.text = countSurivedRaids.ToString();
+            producedBread.text = breadCount.ToString();
+            peopleSurvived.text = peopleCount.ToString();
+
+            /* Show only if has any warriors */
+            if(warriorCount >= 0)
+            {
+                warriorSurvived.text = warriorCount.ToString();
+            }
+            else
+            {
+                warriorSurvived.text = "0";
+            }
         }
     }
 
@@ -210,5 +237,10 @@ public class GameManager : MonoBehaviour
         resourceBread.text = breadCount.ToString();
         countEnemiesSoon.text = nextRaid.ToString();
         countSafeCycles.text = countSafeRounds.ToString();
+    }
+
+    public void RetryGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
