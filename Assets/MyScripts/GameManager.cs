@@ -7,10 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    /* My class */
     public ImagerTimer HarvestTimer;
     public ImagerTimer FoodTimer;
 
+    /* Screens */
     public GameObject GameOverScreen;
+    public GameObject GameWinScreen;
+    public GameObject GamePauseScreen;
 
     /* UI Images */
     public Image PeopleTimerImg;
@@ -27,11 +31,18 @@ public class GameManager : MonoBehaviour
     public Button hireWarrionButton;
     public Button retryGame;
 
-    /*  */
+    /* Game settings */
     public int minedBreadPeople;
     public int consumptionBreadWarrior;
     public int peopleCost;
     public int warriorCost;
+    public float peopleCreateTime;
+    public float warriorCreateTime;
+    public float maxTimeBeforeNexRaid;
+    public int countEnemyWarriors;
+    public int countSafeRounds;
+    public int nextRaid;
+    public int countBreadToWin;
 
     /* Text variables */
     public TMP_Text resourcePeople;
@@ -45,21 +56,15 @@ public class GameManager : MonoBehaviour
     public TMP_Text peopleSurvived;
     public TMP_Text warriorSurvived;
 
-    public float peopleCreateTime;
-    public float warriorCreateTime;
-    public float maxTimeBeforeNexRaid;
-    public int countEnemyWarriors;
-    public int countSafeRounds;
-    public int nextRaid;
-
     /* Final stats variables */
     private int countSurivedRaids;
 
     /* Timer variables */
+    private float raidTimer;
     private float peopleTimer = -2;
     private float warriorTimer = -2;
-    private float raidTimer;
 
+    /* Helper flugs */
     private bool createPeoplePressed;
     private bool createWarriorPressed;
 
@@ -67,7 +72,11 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Time.timeScale = 1;
+
+        /* Disabling all useless screens with new game started */
         GameOverScreen.SetActive(false);
+        GameWinScreen.SetActive(false);
+        GamePauseScreen.SetActive(false);
 
         /* Clear stats */
         countSurivedRaids = 0;
@@ -190,6 +199,14 @@ public class GameManager : MonoBehaviour
                 warriorSurvived.text = "0";
             }
         }
+
+        if(breadCount >= countBreadToWin)
+        {
+            Time.timeScale = 0;
+            GameWinScreen.SetActive(true);
+        }
+
+
     }
 
     private void TryToEnableButton(Button ButtonToEnable)
@@ -242,5 +259,36 @@ public class GameManager : MonoBehaviour
     public void RetryGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void SetGamePause(bool bIsPause)
+    {
+        if(bIsPause)
+        {
+            Time.timeScale = 0;
+            GamePauseScreen.SetActive(true);
+        }
+        else
+        {
+            Time.timeScale = 1;
+            GamePauseScreen.SetActive(false);
+        }
+    }
+
+    public void SetSoundEnabled(bool bIsEnable)
+    {
+        if(bIsEnable)
+        {
+            Debug.Log("Enable");
+        }
+        else
+        {
+            Debug.Log("Disable");
+        }
+    }
+
+    public void ExitToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu_SaveTheVillage");
     }
 }
