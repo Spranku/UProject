@@ -26,8 +26,8 @@ public class GameManager : MonoBehaviour
     public Button hireWarrionButton;
 
     /* */
-    public int pricePeople;
-    public int priceWarrior;
+    public int minedBreadPeople;
+    public int consumptionBreadWarrior;
     public int peopleCost;
     public int warriorCost;
 
@@ -35,11 +35,14 @@ public class GameManager : MonoBehaviour
     public TMP_Text resourcePeople;
     public TMP_Text resourceWarrior;
     public TMP_Text resourceBread;
+    public TMP_Text countEnemiesSoon;
+    public TMP_Text countSafeCycles;
 
     public float peopleCreateTime;
     public float warriorCreateTime;
-    public float raidMaxTime;
-    public int raidIncrease;
+    public float maxTimeBeforeNexRaid;
+    public int countEnemyWarriors;
+    public int countSafeRounds;
     public int nextRaid;
 
     /* Timer variables */
@@ -47,55 +50,93 @@ public class GameManager : MonoBehaviour
     private float warriorTimer = -2;
     private float raidTimer;
 
+    private bool createPeoplePressed;
+    private bool createWarriorPressed;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameOverScreen.SetActive(false);
+
+        /* Pre init count of enemies for next raid */
+        nextRaid += countEnemyWarriors;
+
         UpdateResourceText();
-        raidTimer = raidMaxTime;
+        raidTimer = maxTimeBeforeNexRaid;
     }
 
     // Update is called once per frame
     void Update()
     {
-        raidTimer -= Time.deltaTime;
-        /* Update raid timer image */
-        RaidTimerImg.fillAmount = raidTimer / raidMaxTime;
-
-        if (raidTimer <= 0)
+        /* Launch raid timer only if has`nt safe rounds */
+        if (countSafeRounds == 0)
         {
-            raidTimer = raidMaxTime;
-            warriorCount -= nextRaid;
-            nextRaid += raidIncrease;
+            raidTimer -= Time.deltaTime;
+            /* Update raid timer image */
+            RaidTimerImg.fillAmount = raidTimer / maxTimeBeforeNexRaid;
+
+            /* Timer of next raid */
+            if (raidTimer <= 0)
+            {
+                raidTimer = maxTimeBeforeNexRaid;
+                warriorCount -= nextRaid;
+                nextRaid += countEnemyWarriors;
+            }
         }
 
+        /* Timer of harvest increace */
         if (HarvestTimer.Tick)
         {
-            breadCount += peopleCount * pricePeople;
-            Debug.Log(breadCount);
+            breadCount += peopleCount * minedBreadPeople;
+            if (countSafeRounds != 0)
+                countSafeRounds -= 1;
         }
 
+        /* Timer of food decrease */
         if (FoodTimer.Tick)
         {
-            breadCount -= warriorCount * priceWarrior;
-            Debug.Log(breadCount);
+            breadCount -= warriorCount * consumptionBreadWarrior;
         }
 
-        if(peopleTimer > 0)
+        /* Begin block input */
+        if(breadCount <= 0 || breadCount < peopleCost || createPeoplePressed)
+        {
+            hirePersonButton.interactable = false;
+        }
+        else
+        {
+            TryToEnableButton(hirePersonButton);
+        }
+        //
+        if (breadCount <= 0 || breadCount < warriorCost || createWarriorPressed)
+        {
+            hireWarrionButton.interactable = false;
+        }
+        else
+        {
+            TryToEnableButton(hireWarrionButton);
+        }
+        /* End block input  */
+
+        /* Timer of people increase */
+        if (peopleTimer > 0)
         {
             peopleTimer -= Time.deltaTime;
             /* Update people timer image */
             PeopleTimerImg.fillAmount = peopleTimer / peopleCreateTime;
         }
-        else if(peopleTimer > -1)
+        else if (peopleTimer > -1)
         {
             /* Return default value for people timer img */
             PeopleTimerImg.fillAmount = 1;
-            hirePersonButton.interactable = true;
+            //hirePersonButton.interactable = true; /// ENABLE PEOPLE BUTTON
+            createPeoplePressed = false;
+            TryToEnableButton(hirePersonButton);
             peopleCount += 1;
             peopleTimer = -2;
         }
 
+        /* Timer of warrior increace */
         if (warriorTimer > 0)
         {
             warriorTimer -= Time.deltaTime;
@@ -106,17 +147,43 @@ public class GameManager : MonoBehaviour
         {
             /* Return default value for people timer img */
             WarriorTimerImg.fillAmount = 1;
-            hireWarrionButton.interactable = true;
+            /* Checl current resource before enable button */
+            ///hireWarrionButton.interactable = true; /// ENABLE WARRIOR BUTTON
+            createWarriorPressed = false;
+            TryToEnableButton(hireWarrionButton);
             warriorCount += 1;
             warriorTimer = -2;
         }
 
         UpdateResourceText();
 
+        /* Check win/lose game */
         if(warriorCount < 0)
         {
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
+        }
+    }
+
+    private void TryToEnableButton(Button ButtonToEnable)
+    {
+        /* Check type of button */ 
+        if(ButtonToEnable == hirePersonButton)
+        {
+            /* Additional check */ 
+            if(breadCount > 0 && breadCount >= peopleCost)
+            {
+                hirePersonButton.interactable = true;
+                return;
+            }
+        }
+        else if(ButtonToEnable == hireWarrionButton)
+        {
+            if(breadCount > 0 && breadCount >= warriorCost)
+            {
+                hireWarrionButton.interactable = true;
+                return;
+            }
         }
     }
 
@@ -125,6 +192,7 @@ public class GameManager : MonoBehaviour
         breadCount -= peopleCost;
         peopleTimer = peopleCreateTime;
         hirePersonButton.interactable = false;
+        createPeoplePressed = true;
     }
 
     public void CreateWarrior()
@@ -132,6 +200,7 @@ public class GameManager : MonoBehaviour
         breadCount -= warriorCost;
         warriorTimer = warriorCreateTime;
         hireWarrionButton.interactable = false;
+        createWarriorPressed = true;
     }
 
     private void UpdateResourceText()
@@ -139,5 +208,7 @@ public class GameManager : MonoBehaviour
         resourcePeople.text = peopleCount.ToString();
         resourceWarrior.text = warriorCount.ToString();
         resourceBread.text = breadCount.ToString();
+        countEnemiesSoon.text = nextRaid.ToString();
+        countSafeCycles.text = countSafeRounds.ToString();
     }
 }
