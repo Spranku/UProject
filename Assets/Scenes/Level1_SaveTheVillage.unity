@@ -5046,23 +5046,23 @@ MonoBehaviour:
   PeopleTimerImg: {fileID: 62047745}
   WarriorTimerImg: {fileID: 1974888177}
   RaidTimerImg: {fileID: 1046442485}
-  peopleCount: 3
-  warriorCount: 1
-  breadCount: 10
+  peopleCount: 5
+  warriorCount: 2
+  breadCount: 20
   hirePersonButton: {fileID: 467681639}
   hireWarrionButton: {fileID: 844869151}
   retryGame: {fileID: 1002313106}
   minedBreadPeople: 2
-  consumptionBreadWarrior: 5
+  consumptionBreadWarrior: 4
   peopleCost: 4
-  warriorCost: 8
-  peopleCreateTime: 5
-  warriorCreateTime: 10
-  maxTimeBeforeNexRaid: 30
-  countEnemyWarriors: 2
-  countSafeRounds: 3
+  warriorCost: 10
+  peopleCreateTime: 4
+  warriorCreateTime: 12
+  maxTimeBeforeNexRaid: 40
+  countEnemyWarriors: 1
+  countSafeRounds: 2
   nextRaid: 0
-  countBreadToWin: 11
+  countBreadToWin: 100
   resourcePeople: {fileID: 2146341691}
   resourceWarrior: {fileID: 1316229182}
   resourceBread: {fileID: 1821826457}
@@ -5388,6 +5388,7 @@ GameObject:
   - component: {fileID: 1159255417}
   - component: {fileID: 1159255419}
   - component: {fileID: 1159255418}
+  - component: {fileID: 1159255420}
   m_Layer: 5
   m_Name: Image_Background
   m_TagString: Untagged
@@ -5404,15 +5405,15 @@ RectTransform:
   m_GameObject: {fileID: 1159255416}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1236513679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 800, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1159255418
 MonoBehaviour:
@@ -5434,7 +5435,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 3e3698d5025109c4f8e296dda0d75c70, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c1e0000397ec6a44c92cb455f71e55fe, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5452,6 +5453,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159255416}
   m_CullTransparentMesh: 1
+--- !u!95 &1159255420
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159255416}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a240c2616e2d89148bfdc5241957d0ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1219429841
 GameObject:
   m_ObjectHideFlags: 0
@@ -8621,7 +8644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.11764706}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.5019608}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
