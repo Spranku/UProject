@@ -556,7 +556,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1719,19 +1719,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1068542118}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2959,7 +2947,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3103,7 +3091,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3772,7 +3760,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4529,7 +4517,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4674,7 +4662,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5042,7 +5030,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   HarvestTimer: {fileID: 1645556586}
   FoodTimer: {fileID: 1696741329}
-  ClickSound: {fileID: 1236513680}
+  buttonClickSound: {fileID: 8300000, guid: f98f70760640c5946b76cd335cb44005, type: 3}
+  harvestSound: {fileID: 8300000, guid: 5fe1839fc34077941b209ac1b4cc937e, type: 3}
+  peopleSound: {fileID: 8300000, guid: ae73a1bcfd4912d4da6b0c1f2f85269c, type: 3}
+  warriorSound: {fileID: 8300000, guid: 40710f6d440c8b041b9f91e04bbb4d7d, type: 3}
+  enemisSound: {fileID: 8300000, guid: 718710a495daecc43890468c7e096802, type: 3}
+  foodSound: {fileID: 8300000, guid: e48c26cbcfada934ca155b8392733e25, type: 3}
+  gameSound: {fileID: 8300000, guid: 880e3ee1d9165184ca036b88ec5526a8, type: 3}
+  winSound: {fileID: 8300000, guid: 3b496d85e8c2bdb4d86e2d85af1d6b6c, type: 3}
+  loseSound: {fileID: 8300000, guid: 1f0f6d915ec8c7248876b0c0644a60b2, type: 3}
+  audioSource: {fileID: 1236513680}
   GameOverScreen: {fileID: 606415628}
   GameWinScreen: {fileID: 1583791575}
   GamePauseScreen: {fileID: 1046730807}
@@ -5065,7 +5062,7 @@ MonoBehaviour:
   countEnemyWarriors: 2
   countSafeRounds: 3
   nextRaid: 0
-  countBreadToWin: 100
+  countBreadToWin: 11
   resourcePeople: {fileID: 2146341691}
   resourceWarrior: {fileID: 1316229182}
   resourceBread: {fileID: 1821826457}
@@ -5187,7 +5184,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5332,7 +5329,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5656,7 +5653,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f98f70760640c5946b76cd335cb44005, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -8314,7 +8311,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8947,7 +8944,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1068542118}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PlaySoundClick
+        m_MethodName: PlayButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

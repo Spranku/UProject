@@ -2,8 +2,9 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -12,7 +13,16 @@ public class GameManager : MonoBehaviour
     public ImagerTimer FoodTimer;
 
     /* Sound */
-    public AudioSource ClickSound;
+    public AudioClip buttonClickSound;
+    public AudioClip harvestSound;
+    public AudioClip peopleSound;
+    public AudioClip warriorSound;
+    public AudioClip enemisSound;
+    public AudioClip foodSound;
+    public AudioClip gameSound;
+    public AudioClip winSound;
+    public AudioClip loseSound;
+    public AudioSource audioSource;
     bool isSoundEnabled = true;
 
     /* Screens */
@@ -71,6 +81,7 @@ public class GameManager : MonoBehaviour
     /* Helper flugs */
     private bool createPeoplePressed;
     private bool createWarriorPressed;
+    private bool gameEnded = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -81,6 +92,15 @@ public class GameManager : MonoBehaviour
         GameOverScreen.SetActive(false);
         GameWinScreen.SetActive(false);
         GamePauseScreen.SetActive(false);
+
+        /* Launch ambient */
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+            audioSource = gameObject.AddComponent<AudioSource>();
+
+        audioSource.clip = gameSound;
+        audioSource.loop = true;
+        audioSource.Play();
 
         /* Clear stats */
         countSurivedRaids = 0;
@@ -95,6 +115,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (gameEnded) return;
+
         /* Launch raid timer only if has`nt safe rounds */
         if (countSafeRounds == 0)
         {
@@ -105,6 +127,7 @@ public class GameManager : MonoBehaviour
             /* Timer of next raid */
             if (raidTimer <= 0)
             {
+                PlayActionSound(enemisSound);
                 countSurivedRaids += 1;
                 raidTimer = maxTimeBeforeNexRaid;
                 warriorCount -= nextRaid;
@@ -116,6 +139,11 @@ public class GameManager : MonoBehaviour
         if (HarvestTimer.Tick)
         {
             breadCount += peopleCount * minedBreadPeople;
+
+            Debug.Log("Harvest!");
+            /* Play harvest sound */
+            PlayActionSound(harvestSound);
+
             if (countSafeRounds != 0)
                 countSafeRounds -= 1;
         }
@@ -124,6 +152,7 @@ public class GameManager : MonoBehaviour
         if (FoodTimer.Tick)
         {
             breadCount -= warriorCount * consumptionBreadWarrior;
+            PlayActionSound(foodSound);
         }
 
         /* Begin block input */
@@ -159,6 +188,7 @@ public class GameManager : MonoBehaviour
             PeopleTimerImg.fillAmount = 1;
             createPeoplePressed = false;
             TryToEnableButton(hirePersonButton);
+            PlayActionSound(peopleSound);
             peopleCount += 1;
             peopleTimer = -2;
         }
@@ -176,6 +206,7 @@ public class GameManager : MonoBehaviour
             WarriorTimerImg.fillAmount = 1;
             createWarriorPressed = false;
             TryToEnableButton(hireWarrionButton);
+            PlayActionSound(warriorSound);
             warriorCount += 1;
             warriorTimer = -2;
         }
@@ -185,6 +216,11 @@ public class GameManager : MonoBehaviour
         /* Check win/lose game */
         if(warriorCount < 0)
         {
+            gameEnded = true;
+            /* Clear other sounds an launcg lose sound */
+            audioSource.Stop();
+            PlayActionSound(loseSound);
+
             Time.timeScale = 0;
             GameOverScreen.SetActive(true);
 
@@ -206,11 +242,15 @@ public class GameManager : MonoBehaviour
 
         if(breadCount >= countBreadToWin)
         {
+            gameEnded = true;
+            /* Clear other sounds an launcg win sound */
+            audioSource.Stop();
+            PlayActionSound(winSound);
+
             Time.timeScale = 0;
             GameWinScreen.SetActive(true);
+            return;
         }
-
-
     }
 
     private void TryToEnableButton(Button ButtonToEnable)
@@ -260,10 +300,15 @@ public class GameManager : MonoBehaviour
         countSafeCycles.text = countSafeRounds.ToString();
     }
 
-    public void PlaySoundClick()
+    public void PlayButtonClick()
     {
-        ClickSound.Play();
+        audioSource.PlayOneShot(buttonClickSound);
     }
+
+    public void PlayActionSound(AudioClip ClipToPlay)
+    {
+        audioSource.PlayOneShot(ClipToPlay);
+    } 
 
     public void RetryGame()
     {
@@ -272,22 +317,26 @@ public class GameManager : MonoBehaviour
 
     public void SetGamePause(bool bIsPause)
     {
+        //float currentVolume = AudioListener.volume;
+
         if(bIsPause)
         {
             Time.timeScale = 0;
             GamePauseScreen.SetActive(true);
+            //AudioListener.volume = 0.1f;
         }
         else
         {
             Time.timeScale = 1;
             GamePauseScreen.SetActive(false);
+            //AudioListener.volume = currentVolume;
         }
     }
 
     public void SetSoundEnabled()
     {
         isSoundEnabled = !isSoundEnabled;
-        AudioListener.volume = isSoundEnabled ? 1.0f : 0.0f;
+        AudioListener.volume = isSoundEnabled ? 0.7f : 0.0f;
     }
 
     public void ExitToMainMenu()
