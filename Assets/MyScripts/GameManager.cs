@@ -1,6 +1,6 @@
 using TMPro;
 using Unity.VisualScripting;
-using UnityEditor.AdaptivePerformance.Editor;
+//using UnityEditor.AdaptivePerformance.Editor;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
