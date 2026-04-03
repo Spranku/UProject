@@ -73,6 +73,11 @@ mono_crash.*
 *.unitypackage.meta
 *.app
 
+/Assets/Versatile Studio Assets
+/Assets/TextMesh Pro
+/Assets/PNG
+/ASsets/kenney_isometric-miniature-farm
+
 # Crashlytics generated file
 crashlytics-build.properties
 
