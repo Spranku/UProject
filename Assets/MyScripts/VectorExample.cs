@@ -9,29 +9,23 @@ public class VectorExample : MonoBehaviour
     public Transform tempPoint;
 
     public GameObject cube;
-
-    //private Transform pos;
     
-    public const int NumPoints = 10;
+    /* Point settings */
+    public int NumOfPoints = 5;
+    public float pointOffset = 5.0f;
 
     public float speed = 1.0f;
-    public float pointOffset = 5.0f;
     public bool bIsMove = true;
     public bool bIsRotateZ = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        /* Init array of zero vectors */
-        Vector3[] VectorArr = new Vector3[NumPoints];
-        Vector3[] ReverseArr = new Vector3[NumPoints];
-
-        /* Set start position for cube */
+        /* Create empty arrays with size from inspector */
+        var VectorArr = new Vector3[NumOfPoints];
+        var ReverseArr = new Vector3[NumOfPoints];
 
         Int32 index = 0;
-        //const float offset = 5.0f;
-
-        /* Array of different vectors */
         for (Int32 i = 0; i < VectorArr.Length; ++i)
         {
             ++index;
@@ -47,9 +41,6 @@ public class VectorExample : MonoBehaviour
             /* Add ready point to ReverseArr */
             ReverseArr[i] = pointStart.position;
         }
-        
-
-        //Debug.Log(ReverseArr.Length);
 
         for (int i = ReverseArr.Length - 1; i >= 0; i--)
         {
@@ -57,8 +48,7 @@ public class VectorExample : MonoBehaviour
             pointEnd.position = ReverseArr[i];
             /* Setup current position for move func */
             transform.position = pointEnd.position;
-        }
-        
+        }   
     }
 
     void MoveTo(bool bIsMove)
