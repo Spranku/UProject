@@ -12,9 +12,10 @@ public class VectorExample : MonoBehaviour
 
     //private Transform pos;
     
-    public const int NumPoints = 3;
+    public const int NumPoints = 10;
 
     public float speed = 1.0f;
+    public float pointOffset = 5.0f;
     public bool bIsMove = true;
     public bool bIsRotateZ = false;
 
@@ -28,14 +29,14 @@ public class VectorExample : MonoBehaviour
         /* Set start position for cube */
 
         Int32 index = 0;
-        const float offset = 5.0f;
+        //const float offset = 5.0f;
 
         /* Array of different vectors */
         for (Int32 i = 0; i < VectorArr.Length; ++i)
         {
             ++index;
-            VectorArr[i].y += offset;
-            VectorArr[i].x += (index * offset);
+            VectorArr[i].y += pointOffset;
+            VectorArr[i].x += (index * pointOffset);
 
             /* Start point position = position by frist index from the array */
             pointStart.position = VectorArr[i];
