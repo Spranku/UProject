@@ -1,12 +1,19 @@
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class VectorExample : MonoBehaviour
 {
-    public Transform point1;
-    public Transform point2;
-    public Transform point3;
+    public Transform pointStart;
+    public Transform pointEnd;
+    public Transform tempPoint;
+
     public GameObject cube;
+
+    //private Transform pos;
+    
+    public const int NumPoints = 3;
+
     public float speed = 1.0f;
     public bool bIsMove = true;
     public bool bIsRotateZ = false;
@@ -14,30 +21,54 @@ public class VectorExample : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        Vector3 vec = new Vector3(1,1,0);
-        //transform.rotation = Quaternion.Euler(45, 45, 45);
-
-
-
-        vec.x = point1.position.x;
-        vec.y = point1.position.y;  
-        vec.z = point1.position.z;  
-
         /* Init array of zero vectors */
-        Vector3[] VectorArr = new Vector3[3] { (Vector3.zero),(Vector3.zero),(Vector3.zero) };
+        Vector3[] VectorArr = new Vector3[NumPoints];
+        Vector3[] ReverseArr = new Vector3[NumPoints];
 
-        for (int i = 0; i < VectorArr.Length; ++i)
+        /* Set start position for cube */
+
+        Int32 index = 0;
+        const float offset = 5.0f;
+
+        /* Array of different vectors */
+        for (Int32 i = 0; i < VectorArr.Length; ++i)
         {
-            //VectorArr[i].x = 
-        }
+            ++index;
+            VectorArr[i].y += offset;
+            VectorArr[i].x += (index * offset);
 
+            /* Start point position = position by frist index from the array */
+            pointStart.position = VectorArr[i];
+            /* Setup current position for launch move func */
+            transform.position = pointStart.position;
+            /* Setup start position for move func */
+            tempPoint.position = pointStart.position;
+            /* Add ready point to ReverseArr */
+            ReverseArr[i] = pointStart.position;
+        }
+        
+
+        //Debug.Log(ReverseArr.Length);
+
+        for (int i = ReverseArr.Length - 1; i >= 0; i--)
+        {
+            /* Save end point position every iteration */
+            pointEnd.position = ReverseArr[i];
+            /* Setup current position for move func */
+            transform.position = pointEnd.position;
+        }
+        
     }
 
-    void MoveTo(Transform PositionToMove, bool bIsMove)
+    void MoveTo(bool bIsMove)
     {
-        if(bIsMove && transform.position != PositionToMove.position)
+        if(bIsMove && transform.position != tempPoint.position)
         {
-            transform.position = Vector3.MoveTowards(transform.position, PositionToMove.position, Time.deltaTime * speed);
+            transform.position = Vector3.MoveTowards(transform.position, tempPoint.position, Time.deltaTime * speed);
+        }
+        else
+        {
+            tempPoint.position = pointEnd.position;
         }
     }
 
@@ -50,7 +81,7 @@ public class VectorExample : MonoBehaviour
             cube.transform.Rotate(0,speed,0);
         }
 
-        MoveTo(point1, true);
+        MoveTo(true);
         
         ///* Flip flop */
         //if(transform.position != pointUp.position && bIsMove)
