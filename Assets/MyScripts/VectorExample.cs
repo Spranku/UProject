@@ -61,6 +61,7 @@ public class VectorExample : MonoBehaviour
             transform.position = pointEnd.position;
         }
     }
+
     void MovePointToPoint(bool bIsMove, bool bInfiniteMove)
     {
         if(!IsInfiniteMove)
@@ -104,20 +105,5 @@ public class VectorExample : MonoBehaviour
     void Update()
     {
         MovePointToPoint(CanMove,IsInfiniteMove);
-        
-        //if(transform.position != pointUp.position && bIsMove)
-        //{
-        //    transform.position = Vector3.MoveTowards(transform.position, pointUp.position, Time.deltaTime * speed);
-        //    //transform.LookAt(pointUp.position);
-        //}
-        //else if(transform.position == pointUp.position && bIsMove)
-        //{
-        //    transform.position = Vector3.MoveTowards(transform.position, pointDown.position, Time.deltaTime * speed);
-        //    //transform.LookAt(pointDown.position);
-        //}
-        //transform.LookAt(point1.position);
-        //transform.position = Vector3.Lerp(transform.position, point1.position, 0.1f);
-        /* Simpe move to ... */
-        //transform.position = Vector3.MoveTowards(transform.position, point1.position, Time.deltaTime);
     }
 }

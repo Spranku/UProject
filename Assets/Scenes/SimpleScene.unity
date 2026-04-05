@@ -510,6 +510,7 @@ MonoBehaviour:
   NumOfRunners: 5
   SpawnOffset: 10
   RunnerSpeed: 5
+  PassDistance: 0.5
 --- !u!4 &868379474
 Transform:
   m_ObjectHideFlags: 0
@@ -557,6 +558,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e75133dbe994d5f4b874673ebe4f1e3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Runner
+  rs: {fileID: 0}
+  RunnerID: 0
+  NextPosition: {x: 0, y: 0, z: 0}
+  speed: 5
+  passDistance: 0
+  CanMove: 0
 --- !u!136 &912842871
 CapsuleCollider:
   m_ObjectHideFlags: 0
