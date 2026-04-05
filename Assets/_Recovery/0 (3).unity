@@ -507,7 +507,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RunnerSpawner
   RunnerToSpawn: {fileID: 912842870}
-  NumOfRunners: 5
+  NumOfRunners: 3
   SpawnOffset: 10
   RunnerSpeed: 5
 --- !u!4 &868379474
@@ -646,7 +646,7 @@ Transform:
   m_GameObject: {fileID: 912842869}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: 0, z: -23.61}
+  m_LocalPosition: {x: -5, y: 0, z: -25.71}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
