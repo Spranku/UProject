@@ -7,18 +7,14 @@ public class BoomController : MonoBehaviour
     public float Power;
     public float Radius;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    private bool CanBoom = true;
 
     // Update is called once per frame
     void Update()
     {
         TimeToExplosion -= Time.deltaTime;
 
-        if(TimeToExplosion <= 0)
+        if(TimeToExplosion <= 0 && CanBoom)
         {
             Boom();
         }
@@ -26,18 +22,17 @@ public class BoomController : MonoBehaviour
 
     void Boom()
     {
-        Rigidbody[] block = FindObjectsOfType<Rigidbody>();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, Radius);
 
-        foreach (Rigidbody b in block)
+        foreach (var hitCollider in hitColliders)
         {
-            if(Vector3.Distance(transform.position, b.transform.position) < Radius)
+            Rigidbody rb = hitCollider.GetComponent<Rigidbody>();
+            if (rb != null)
             {
-                Vector3 Direction = b.transform.position - transform.position;
-
-                b.AddForce(Direction.normalized * Power * (Radius - Vector3.Distance(transform.position, b.transform.position)), ForceMode.Impulse);
+                rb.AddExplosionForce(Power, transform.position, Radius, 1f, ForceMode.Impulse);
+                CanBoom = false;
             }
         }
-
 
         TimeToExplosion = 3;
     }
