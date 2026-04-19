@@ -12,7 +12,7 @@ public class MainMenu : MonoBehaviour
     public Button LeaveGameButton;
     public string gameSceneName = "Level1_SaveTheVillage";
 
-    void Start()
+    public virtual void Start()
     {
         /* Launch ambient */
         audioSource = GetComponent<AudioSource>();
@@ -24,18 +24,19 @@ public class MainMenu : MonoBehaviour
         audioSource.Play();
     }
 
-    public void StartGame()
+    public virtual void StartGame()
     {
+        Debug.Log("Super::StargMae-");
         SceneManager.LoadScene(gameSceneName);
     }
 
-    public void LeaveGame()
+    public virtual void LeaveGame()
     {
         Application.Quit();
         Debug.Log("Game closed success");
     }
 
-    public void PlayButtonClick()
+    public virtual void PlayButtonClick()
     {
         audioSource.PlayOneShot(buttonClickSound);
     }
