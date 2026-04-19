@@ -4,8 +4,12 @@ public class RampController : AnimObjectController
 {
     public override void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
-        Anim.SetTrigger("Trigger");
+        if(other.name != "Plane")
+        {
+            Debug.Log(other.name);
+            Anim.SetTrigger("Trigger");
+
+        }
     }
 
     public override void OnTriggerExit(Collider other)
