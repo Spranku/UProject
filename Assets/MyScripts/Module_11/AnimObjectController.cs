@@ -1,5 +1,8 @@
+using System;
 using Unity.IO.LowLevel.Unsafe;
+using Unity.Mathematics;
 using UnityEngine;
+
 
 public class AnimObjectController : MonoBehaviour
 {
@@ -19,6 +22,13 @@ public class AnimObjectController : MonoBehaviour
     public virtual void OnTriggerExit(Collider other)
     {
         Debug.Log("Exit");
-        Anim.SetBool("EndOverlap",true);
+        Anim.SetBool("EndOverlap", true);
+        GetRandomBool();
+    }
+
+    protected virtual void GetRandomBool() 
+    {
+        bool randomBool = UnityEngine.Random.value > 0.5f;
+        Anim.SetBool("Rand",randomBool);
     }
 }
