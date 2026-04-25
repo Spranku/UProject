@@ -3,37 +3,29 @@ using UnityEngine;
 
 namespace WildBall.Inputs
 {
-    [RequireComponent(typeof(Rigidbody))]
+    [RequireComponent(typeof(PlayerMovement))]
     public class PlayerInput : MonoBehaviour
     {
-        private Rigidbody playerRigidbody;
+        private Vector3 Movement;
+        private PlayerMovement PlayerMovement;
 
         private void Awake()
         {
-            playerRigidbody = GetComponent<Rigidbody>();
+            PlayerMovement = GetComponent<PlayerMovement>();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if(Input.GetKeyDown(KeyCode.A))
-            {
-                Debug.Log("Press A");    
-            }
+            float Horizntal = Input.GetAxis(GlobalStringVars.HORIZONTAL_AXIS);
+            float Vertical = Input.GetAxis(GlobalStringVars.VERTICAL_AXIS);
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                Debug.Log("Press Fire");
-            }
+            Movement = new Vector3(Horizntal, 0, Vertical).normalized;
+        }
 
-
-            if (Input.GetButtonDown(GlobalStringVars.JUMP_BUTTON))
-            {
-                Debug.Log("Jump");
-            }
-
-            //Debug.Log((Input.GetAxis(GlobalStringVars.HORIZONTAL_AXIS)));
-
+        private void FixedUpdate()
+        {
+            PlayerMovement.MoveCharacter(Movement);
         }
     }
 }
