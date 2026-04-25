@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 29308497}
   - component: {fileID: 29308501}
   - component: {fileID: 29308502}
+  - component: {fileID: 29308503}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -272,6 +273,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f932aa0e37ad0984aba56bee43e9c922, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
+--- !u!114 &29308503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 29308496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3217131e70357334d9b9c908f95ed74b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WildBall.Inputs.PlayerMovement
+  Speed: 2
 --- !u!1 &1120924220
 GameObject:
   m_ObjectHideFlags: 0
@@ -284,6 +298,7 @@ GameObject:
   - component: {fileID: 1120924222}
   - component: {fileID: 1120924221}
   - component: {fileID: 1120924224}
+  - component: {fileID: 1120924225}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -358,13 +373,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120924220}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13278809, y: 0.4468666, z: -0.067267686, w: -0.8821296}
-  m_LocalPosition: {x: 2.974934, y: 1.735356, z: -2.4595845}
+  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
+  m_LocalPosition: {x: 0, y: 2.46, z: -3.92}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 15, y: 0, z: 0}
 --- !u!114 &1120924224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,6 +424,19 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!114 &1120924225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120924220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eed6f45211afc34a8440b88b1472a18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraMovement
+  PlayerTransform: {fileID: 29308500}
 --- !u!1 &1407311848
 GameObject:
   m_ObjectHideFlags: 0
