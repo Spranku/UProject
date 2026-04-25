@@ -2,6 +2,7 @@ using System;
 using Unity.IO.LowLevel.Unsafe;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class AnimObjectController : MonoBehaviour
@@ -15,15 +16,18 @@ public class AnimObjectController : MonoBehaviour
 
     public virtual void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter");
-        Anim.SetTrigger("Trigger");
+        if (other.CompareTag("GameController"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
+        //Anim.SetTrigger("Trigger");
     }
 
     public virtual void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
-        Anim.SetBool("EndOverlap", true);
-        GetRandomBool();
+       // Anim.SetBool("EndOverlap", true);
+        //GetRandomBool();
     }
 
     protected virtual void GetRandomBool() 

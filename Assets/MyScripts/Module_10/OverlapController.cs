@@ -13,7 +13,7 @@ public class OverlapController : MonoBehaviour
         foreach(var col in colls)
         {
             Destroy(col.gameObject);
-            Debug.Log(col.name);
+            ///Debug.Log(col.name);
         }
     }
 
