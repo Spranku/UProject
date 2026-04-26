@@ -6,6 +6,7 @@ namespace WildBall.Inputs
     [RequireComponent(typeof(PlayerMovement))]
     public class PlayerInput : MonoBehaviour
     {
+        public bool CanMove = false;
         private Vector3 Movement;
         private PlayerMovement PlayerMovement;
 
