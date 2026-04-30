@@ -124,6 +124,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8491107493422865729, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
   m_PrefabInstance: {fileID: 1150181009}
   m_PrefabAsset: {fileID: 0}
+--- !u!198 &207485170 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 771280853414433608, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+  m_PrefabInstance: {fileID: 3896331715995851800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &416685516
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,6 +1834,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1125379865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4986592362721867128, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
+  m_PrefabInstance: {fileID: 1150181009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1150181009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7020,6 +7030,26 @@ PrefabInstance:
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
       value: -0.7720449
       objectReference: {fileID: 0}
+    - target: {fileID: 4325639643285656307, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: CurrentType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325639643285656307, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: DurationTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325639643285656307, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: TriggerObject
+      value: 
+      objectReference: {fileID: 1125379865}
+    - target: {fileID: 4325639643285656307, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: CurrentActivationType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4325639643285656307, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: CurrentParticleSystem
+      value: 
+      objectReference: {fileID: 207485170}
     - target: {fileID: 5397374457524166229, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.2001188

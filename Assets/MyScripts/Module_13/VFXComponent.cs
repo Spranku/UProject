@@ -1,48 +1,71 @@
+using System.Collections;
 using UnityEngine;
 
 public class VFXComponent : MonoBehaviour
 {
-    /* Type of laucnh particle system */
+    /* Type of launch particle system */
     public enum ActivationType
     {
         Duration,
         Infinite,
-        Instant
+        Instant,
+        Trigger
     }
 
-    public ParticleSystem MyParticleSystem;
+    public ParticleSystem CurrentParticleSystem = null;
+    public ActivationType CurrentActivationType;
+    public GameObject TriggerObject = null;
     public float DurationTime = 0.0f;
-    public ActivationType CurrentType;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        ///MyParticleSystem = GetComponent<ParticleSystem>();
-        var MainSettings = MyParticleSystem.main;
-        switch (CurrentType)
+        var MainSettings = CurrentParticleSystem.main;
+        switch (CurrentActivationType)
         {
             case ActivationType.Duration:
-                MainSettings.duration = DurationTime;
-                MainSettings.loop = false;
+                {
+                    MainSettings.duration = DurationTime;
+                    MainSettings.loop = false;
+                    Coroutine coroutine = StartCoroutine(Timer(DurationTime));
+                }
                 break;
             case ActivationType.Infinite:
-                MainSettings.loop = true;
+                {
+                    MainSettings.loop = true;
+                    LaunchVFX();
+                }
                 break;
             case ActivationType.Instant:
-                MainSettings.duration = 0.1f;
-                MainSettings.loop = false;
+                {
+                    MainSettings.duration = 0.1f;
+                    MainSettings.loop = false;
+                    LaunchVFX();
+                }
                 break;
             default:
                 break;
         }
     }
 
+    /* Lauch by trigger*/
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("GameController"))
+        if (CurrentActivationType == ActivationType.Trigger && TriggerObject != null)
         {
-            if (!MyParticleSystem) return;
-            MyParticleSystem.Play();
+            LaunchVFX();
         }
+    }
+
+    /* Launch by duration */
+    private IEnumerator Timer(float Time)
+    {
+        yield return new WaitForSeconds(Time);
+        LaunchVFX();    
+    }
+
+    private void LaunchVFX()
+    {
+        if (!CurrentParticleSystem) return;
+        CurrentParticleSystem.Play();
     }
 }
