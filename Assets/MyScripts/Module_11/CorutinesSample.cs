@@ -6,7 +6,6 @@ public class CorutinesSample : MonoBehaviour
     private void Start()
     {
         Coroutine coroutine = StartCoroutine(timer());
-        
     }
 
     private IEnumerator timer()

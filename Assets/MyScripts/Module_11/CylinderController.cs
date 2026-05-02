@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.SceneManagement;
 
 public class CylinderController : RampController
@@ -9,7 +10,19 @@ public class CylinderController : RampController
     {
         if(other.CompareTag("GameController"))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            var myMesh = other.GetComponent<MeshRenderer>();
+            if (myMesh) myMesh.forceRenderingOff = true;
+
+            var OtherParticleSystem = other.gameObject.GetComponent<ParticleSystem>();
+            if(OtherParticleSystem) OtherParticleSystem.Play();
+            
+            Coroutine coroutine = StartCoroutine(DeathTimer());
         }
+    }
+
+    private IEnumerator DeathTimer()
+    {
+        yield return new WaitForSeconds(1.0f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
