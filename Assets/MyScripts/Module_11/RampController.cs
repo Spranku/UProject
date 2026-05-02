@@ -6,7 +6,7 @@ public class RampController : AnimObjectController
     {
         if(other.name != "Plane")
         {
-            Debug.Log(other.name);
+            ///Debug.Log(other.name);
             Anim.SetTrigger("Trigger");
 
         }
@@ -14,7 +14,7 @@ public class RampController : AnimObjectController
 
     public override void OnTriggerExit(Collider other)
     {
-        Debug.Log("Exit");
+        ///Debug.Log("Exit");
         Anim.SetBool("EndOverlap", true);
     }
 }
