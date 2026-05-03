@@ -1,5 +1,6 @@
 using UnityEngine;
 
+
 public class SoftLaunchPlatform : LaunchPlatform
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,8 +22,12 @@ public class SoftLaunchPlatform : LaunchPlatform
 
     protected override void Launch()
     {
-        Debug.Log("Launch");
         rg.AddForce(new Vector3(transform.position.x, transform.position.y - (-0.01f) * LauchPower, transform.position.z), ForceMode.Impulse);
-        rg = null;
+        if (JumpSound && MainAudioSource)
+        { 
+            MainAudioSource.PlayOneShot(JumpSound);
+        }
+
+            rg = null;
     }
 }

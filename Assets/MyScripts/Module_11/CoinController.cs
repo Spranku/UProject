@@ -1,7 +1,10 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class CoinController : MonoBehaviour
 {
+    public AudioSource MainAudioSource;
+    public AudioClip PickUpSound;
     private Animator Anim;
 
     private void Awake()
@@ -13,12 +16,7 @@ public class CoinController : MonoBehaviour
     {
         Anim.SetBool("Alive", false);
         Anim.SetTrigger("Collect");
+        if (MainAudioSource) MainAudioSource.PlayOneShot(PickUpSound);
         Destroy(gameObject, 0.5f);
-    }
-
-    public void DestroySomething()
-    {
-        //Destroy(FindObjectOfType<MeshFilter>().gameObject);
-        ///Destroy(FindFirstObjectByType<MeshFilter>().gameObject);
     }
 }

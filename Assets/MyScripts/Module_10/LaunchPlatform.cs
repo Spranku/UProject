@@ -2,10 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[RequireComponent(typeof(AudioSource))]
 public class LaunchPlatform : MonoBehaviour
 {
     [SerializeField] public float LaunchPeriod = 1.0f;
     [SerializeField] public float LauchPower = 100.0f;
+    public AudioSource MainAudioSource;
+    public AudioClip JumpSound;
 
     private float CachePeriod;
     protected Rigidbody rg;

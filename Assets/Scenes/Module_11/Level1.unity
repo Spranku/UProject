@@ -181,6 +181,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_1
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1048,6 +1052,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_3 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1354,6 +1362,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2264,6 +2276,7 @@ GameObject:
   - component: {fileID: 309416672}
   - component: {fileID: 309416671}
   - component: {fileID: 309416670}
+  - component: {fileID: 309416677}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -2300,6 +2313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoftLaunchObject
   LaunchPeriod: 1
   LauchPower: 100
+  MainAudioSource: {fileID: 0}
+  JumpSound: {fileID: 0}
   NumOfInteractions: 1
   FirstGameObject: {fileID: 597839397}
   SecondGameObject: {fileID: 0}
@@ -2532,6 +2547,103 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 309416668}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!82 &309416677
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309416668}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &311363255
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3066,6 +3178,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4033,6 +4149,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4252,6 +4372,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2 (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4759,6 +4883,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_3 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4815,6 +4943,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
       propertyPath: m_Name
       value: Fence_3 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4878,6 +5010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_2 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4934,6 +5070,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5261,6 +5401,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
       propertyPath: m_Name
       value: Fence_3 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5748,6 +5892,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5893,6 +6041,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
       propertyPath: m_Name
       value: Fence_3 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6094,6 +6246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6252,7 +6408,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a893af7e794f547ad601accdd76635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  MainAudioSource: {fileID: 0}
+  WinSound: {fileID: 0}
   IsLastLevel: 0
+  WinnerCanvas: {fileID: 0}
+  WinnerVFX: {fileID: 0}
 --- !u!1001 &1088253750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6465,6 +6625,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8491107493422865729, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
   m_PrefabInstance: {fileID: 2075873184}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &1117649612
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695084391}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 28608ec4c89842944b2596ae7ab0f6b0, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &1127395907
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6673,6 +6930,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 758761661377633571, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: PickUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 15c5afdb54fd96b4da059f708b13c236, type: 3}
+    - target: {fileID: 758761661377633571, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: MainAudioSource
+      value: 
+      objectReference: {fileID: 1117649612}
     - target: {fileID: 1951475952987318414, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
       propertyPath: m_Name
       value: VFXCoin (2)
@@ -6954,6 +7219,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_3 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7010,6 +7279,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7702,7 +7975,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05a893af7e794f547ad601accdd76635, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  MainAudioSource: {fileID: 0}
+  WinSound: {fileID: 0}
   IsLastLevel: 0
+  WinnerCanvas: {fileID: 0}
+  WinnerVFX: {fileID: 0}
 --- !u!4 &1452166386 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2998304158591782277, guid: 1b8355de17eefb449a8ddef14522271b, type: 3}
@@ -7764,6 +8041,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7900,6 +8181,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
       propertyPath: m_Name
       value: Fence_2 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 638e9ec5020181a4dabbe5df49addfed, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8398,6 +8683,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
       propertyPath: m_Name
       value: Fence_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9030,6 +9319,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_3 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9487,6 +9780,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9569,6 +9866,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 758761661377633571, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: PickUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 15c5afdb54fd96b4da059f708b13c236, type: 3}
+    - target: {fileID: 758761661377633571, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: MainAudioSource
+      value: 
+      objectReference: {fileID: 1117649612}
     - target: {fileID: 1951475952987318414, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
       propertyPath: m_Name
       value: VFXCoin (1)
@@ -10030,6 +10335,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fence_3
       objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: cc4199e11d2a377479f3a7a2b55d19f4, type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10379,6 +10688,7 @@ GameObject:
   - component: {fileID: 2039149012}
   - component: {fileID: 2039149011}
   - component: {fileID: 2039149017}
+  - component: {fileID: 2039149018}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Untagged
@@ -10542,6 +10852,105 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b04dda7d5a04e8149b98e05497da90b1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CylinderController
+  MainAudioSource: {fileID: 2039149018}
+  DeathSound: {fileID: 8300000, guid: 2f528f6418d189645834fbd027eee761, type: 3}
+--- !u!82 &2039149018
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039149010}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &2049058448 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7924234981182986728, guid: 965ab7b4d2165934a8a21769c0092444, type: 3}
@@ -10559,6 +10968,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3516422817968735772, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
+      propertyPath: HitSound
+      value: 
+      objectReference: {fileID: 8300000, guid: a82209a07e925424781229e32fc7499c, type: 3}
+    - target: {fileID: 3516422817968735772, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
+      propertyPath: MainAudioSource
+      value: 
+      objectReference: {fileID: 1117649612}
     - target: {fileID: 3877341953610715077, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
       propertyPath: looping
       value: 0
@@ -10618,7 +11035,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4986592362721867128, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1117649612}
   m_SourcePrefab: {fileID: 100100000, guid: 99eb6edac4588144aaada5c0db917143, type: 3}
 --- !u!1001 &2101810916
 PrefabInstance:
@@ -10671,6 +11091,10 @@ PrefabInstance:
     - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
       propertyPath: m_Name
       value: Fence_1 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1719348211603469416, guid: 6d74f9af575e1c04dbbc936fcb5d6c25, type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11067,6 +11491,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 758761661377633571, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: PickUpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 15c5afdb54fd96b4da059f708b13c236, type: 3}
+    - target: {fileID: 758761661377633571, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
+      propertyPath: MainAudioSource
+      value: 
+      objectReference: {fileID: 1117649612}
     - target: {fileID: 1951475952987318414, guid: b2e11ce81e2df3d40b9d0c7d506617f7, type: 3}
       propertyPath: m_Name
       value: VFXCoin
