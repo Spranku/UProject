@@ -33,7 +33,6 @@ public class LaunchPlatform : MonoBehaviour
     protected virtual void Launch()
     {
         rg.AddForce(new Vector3(transform.position.x, transform.position.y - (-0.01f) * LauchPower, transform.position.z), ForceMode.Impulse);
-        if (JumpSound && MainAudioSource) { MainAudioSource.PlayOneShot(JumpSound); }
         LaunchPeriod = CachePeriod;
     }
 }
