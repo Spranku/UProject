@@ -4,6 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public AudioSource MainAudioSource;
+    public AudioClip WinSound;
     public bool IsLastLevel = false;
     public Canvas WinnerCanvas = null;
     public GameObject WinnerVFX = null;
@@ -15,6 +17,8 @@ public class PlayerController : MonoBehaviour
 
     public void OnShowWinnerScreen()
     {
+        if (MainAudioSource && WinSound) { MainAudioSource.PlayOneShot(WinSound); }
+
         if(WinnerCanvas)
         {
             WinnerCanvas.gameObject.SetActive(true);

@@ -2,10 +2,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 
+[RequireComponent(typeof(AudioSource))]
 public class LaunchPlatform : MonoBehaviour
 {
     [SerializeField] public float LaunchPeriod = 1.0f;
     [SerializeField] public float LauchPower = 100.0f;
+    public AudioSource MainAudioSource;
+    public AudioClip JumpSound;
 
     private float CachePeriod;
     protected Rigidbody rg;
@@ -30,6 +33,7 @@ public class LaunchPlatform : MonoBehaviour
     protected virtual void Launch()
     {
         rg.AddForce(new Vector3(transform.position.x, transform.position.y - (-0.01f) * LauchPower, transform.position.z), ForceMode.Impulse);
+        if (JumpSound && MainAudioSource) { MainAudioSource.PlayOneShot(JumpSound); }
         LaunchPeriod = CachePeriod;
     }
 }

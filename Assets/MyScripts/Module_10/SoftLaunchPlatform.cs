@@ -23,6 +23,15 @@ public class SoftLaunchPlatform : LaunchPlatform
     {
         Debug.Log("Launch");
         rg.AddForce(new Vector3(transform.position.x, transform.position.y - (-0.01f) * LauchPower, transform.position.z), ForceMode.Impulse);
-        rg = null;
+        if (JumpSound && MainAudioSource)
+        { 
+            MainAudioSource.PlayOneShot(JumpSound);
+            Debug.Log("SUCCESS");
+        }
+        else
+        {
+            Debug.Log("Not enought");
+        }
+            rg = null;
     }
 }

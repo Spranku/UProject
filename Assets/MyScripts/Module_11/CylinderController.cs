@@ -2,9 +2,13 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(AudioSource))]
 public class CylinderController : RampController
 {
     /* Inherit */
+
+    public AudioSource MainAudioSource;
+    public AudioClip DeathSound;
 
     public override void OnTriggerEnter(Collider other)
     {
@@ -15,7 +19,7 @@ public class CylinderController : RampController
 
             var OtherParticleSystem = other.gameObject.GetComponent<ParticleSystem>();
             if(OtherParticleSystem) OtherParticleSystem.Play();
-            
+            if (MainAudioSource) MainAudioSource.PlayOneShot(DeathSound);
             Coroutine coroutine = StartCoroutine(DeathTimer());
         }
     }

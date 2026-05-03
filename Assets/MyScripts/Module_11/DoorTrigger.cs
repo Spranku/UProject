@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class DoorTrigger : MonoBehaviour
 {
     [SerializeField] private Animator doorAnimator;
+    public AudioSource DoorSound;
     public Button ActionButton;
     private bool isPlayerInTrigger = false;
 
@@ -38,6 +39,7 @@ public class DoorTrigger : MonoBehaviour
     public void OpenDoor()
     {
         doorAnimator.SetTrigger("Open");
+        if(DoorSound) { DoorSound.Play(); }
     }
 
 }
