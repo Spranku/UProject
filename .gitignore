@@ -79,6 +79,7 @@ mono_crash.*
 /ASsets/kenney_isometric-miniature-farm
 /Packages
 /Assets/WorldMaterialsFree
+/Assets/Cainos
 
 # Crashlytics generated file
 crashlytics-build.properties
