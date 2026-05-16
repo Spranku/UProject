@@ -8,7 +8,7 @@ namespace WildBall.Inputs
     {
         public AudioSource MainAudioSource;
         public AudioClip HitSound;
-        [SerializeField, Range(0, 10)] private float Speed = 2.0f;
+        [SerializeField, Range(0, 10)] public float Speed = 2.0f;
         private Rigidbody playerRigidbody;
 
         public virtual void Awake()

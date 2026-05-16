@@ -18,7 +18,7 @@ public class PF_PlayerInput : PlayerInput
     // Update is called once per frame
     public override void Update()
     {
-        float horizontalDirection = Input.GetAxisRaw(GlobalStringVars.HORIZONTAL_AXIS);
+        float horizontalDirection = Input.GetAxis(GlobalStringVars.HORIZONTAL_AXIS);
         bool isJumpButtonPressed = Input.GetButtonDown(GlobalStringVars.JUMP_BUTTON);
         //
         //

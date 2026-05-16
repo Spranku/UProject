@@ -4,12 +4,16 @@ using WildBall.Inputs;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PF_PlayerMovement : PlayerMovement
 {
+    [Header("Movement vars")]
     [SerializeField] private float jumpForce;
     [SerializeField] private bool bIsOnGround = false;
+
+    [Header("Other settings")]
+    [SerializeField] private AnimationCurve Curve;
     [SerializeField] private Transform GoundColliderTransform;
     [SerializeField] private float JumpOffset;
     [SerializeField] private LayerMask GroundMask;
-   private Rigidbody2D rg2D;
+    private Rigidbody2D rg2D;
 
 
     public override void Awake()
@@ -26,15 +30,19 @@ public class PF_PlayerMovement : PlayerMovement
     public override void Move(float Direction, bool bIsJumpButtonPressed)
     {
         /* Jump */
-        if (bIsJumpButtonPressed)
-        {
-            Jump();
-        }
-        // Horizontal movement
+        if (bIsJumpButtonPressed) Jump();
+
+        /* Horizontal movement */
+        if (Mathf.Abs(Direction) > 0.01f) HorizontalMovement(Direction);
     }
 
     private void Jump()
     {
         if (bIsOnGround) rg2D.linearVelocity = new Vector2(rg2D.linearVelocity.x, jumpForce);
+    }
+
+    private void HorizontalMovement(float Direction) 
+    {
+        rg2D.linearVelocity = new Vector2(Curve.Evaluate(Direction), rg2D.linearVelocity.y);
     }
 }
