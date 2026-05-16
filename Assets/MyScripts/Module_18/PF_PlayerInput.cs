@@ -2,17 +2,15 @@ using UnityEngine;
 using WildBall.Inputs;
 
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(ShooterComponent))]
 public class PF_PlayerInput : PlayerInput
 {
+    private ShooterComponent ShooterComp;
+
     public override void Awake()
     {
         base.Awake();
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
+        ShooterComp = GetComponent<ShooterComponent>();
     }
 
     // Update is called once per frame
@@ -22,6 +20,11 @@ public class PF_PlayerInput : PlayerInput
         bool isJumpButtonPressed = Input.GetButtonDown(GlobalStringVars.JUMP_BUTTON);
         //
         //
+
+        if(Input.GetButtonDown(GlobalStringVars.FIRE_1))
+        {
+            ShooterComp.Shoot(horizontalDirection);
+        }
 
         playerMovement.Move(horizontalDirection, isJumpButtonPressed);
     }
