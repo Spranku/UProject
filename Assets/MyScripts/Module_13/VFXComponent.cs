@@ -19,6 +19,8 @@ public class VFXComponent : MonoBehaviour
 
     void Start()
     {
+        CurrentParticleSystem.Stop();
+
         var MainSettings = CurrentParticleSystem.main;
         switch (CurrentActivationType)
         {
@@ -67,5 +69,6 @@ public class VFXComponent : MonoBehaviour
     {
         if (!CurrentParticleSystem) return;
         CurrentParticleSystem.Play();
+        Debug.Log("SuccessPlay");
     }
 }

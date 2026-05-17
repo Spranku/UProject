@@ -4,23 +4,19 @@ using UnityEngine.SceneManagement;
 
 public class DamageComponent : MonoBehaviour
 {
-    [SerializeField] protected float Damage;
+    [SerializeField] public float Damage;
     [SerializeField] protected float LifeTime = 0.1f;
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Damageable"))
+        if (collision.CompareTag("Damageable"))
         {
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(Damage);
         }
-
-        //Destroy(gameObject);
-        //Coroutine coroutine = StartCoroutine(DestroyObject(LifeTime));
+        else if(collision.name == ("DarkEnemy"))
+        {
+            collision.gameObject.GetComponent<HealthComponent>().TakeDamage(Damage);
+        }
+        
     }
-
-    //private IEnumerator DestroyObject(float LifeTime)
-    //{
-    //    yield return new WaitForSeconds(LifeTime);
-    //    Destroy(gameObject);
-    //}
 }

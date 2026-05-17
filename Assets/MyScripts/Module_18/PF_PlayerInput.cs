@@ -18,8 +18,6 @@ public class PF_PlayerInput : PlayerInput
     {
         float horizontalDirection = Input.GetAxis(GlobalStringVars.HORIZONTAL_AXIS);
         bool isJumpButtonPressed = Input.GetButtonDown(GlobalStringVars.JUMP_BUTTON);
-        //
-        //
 
         if(Input.GetButtonDown(GlobalStringVars.FIRE_1))
         {

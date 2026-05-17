@@ -10,16 +10,37 @@ public class PF_PlayerMovement : PlayerMovement
 
     [Header("Other settings")]
     [SerializeField] private AnimationCurve Curve;
+    [SerializeField] private Animator CharacterAnimator;
     [SerializeField] private Transform GoundColliderTransform;
     [SerializeField] private float JumpOffset;
     [SerializeField] private LayerMask GroundMask;
     [SerializeField] private SpriteRenderer CharacterSprite;
+    private HealthComponent PlayerHealthComp;
     private Rigidbody2D rg2D;
 
 
     public override void Awake()
     {
         rg2D = GetComponent<Rigidbody2D>();
+
+        PlayerHealthComp = GetComponent<HealthComponent>();
+
+        /* Subscribe OnDeath event */
+        if (PlayerHealthComp != null)
+        {
+            PlayerHealthComp.OnDeath += HandleDeath;
+        }
+    }
+
+    private void HandleDeath()
+    {
+        Death();
+    }
+
+    private void Death()
+    {
+        Debug.Log("Death player");
+        CharacterAnimator.SetBool("IsDeath", true);
     }
 
     private void FixedUpdate()
@@ -34,7 +55,17 @@ public class PF_PlayerMovement : PlayerMovement
         if (bIsJumpButtonPressed) Jump();
 
         /* Horizontal movement */
-        if (Mathf.Abs(Direction) > 0.01f) HorizontalMovement(Direction);
+        if (Mathf.Abs(Direction) > 0.01f)
+        {
+            /* Moving */
+            HorizontalMovement(Direction);
+            /* Lauch character walk animation */
+            CharacterAnimator.SetBool("IsWalk", true);
+        }
+        else
+        {
+            CharacterAnimator.SetBool("IsWalk", false);
+        }
     }
 
     private void Jump()
@@ -44,17 +75,9 @@ public class PF_PlayerMovement : PlayerMovement
 
     private void HorizontalMovement(float Direction) 
     {
-        if(Direction > 0.01f)
-        {
-            Debug.Log("Right");
-            CharacterSprite.flipX = true;
-        }
-
-        if (Direction < 0.01f)
-        {
-            Debug.Log("Left");
-            CharacterSprite.flipX = false;
-        }
+        /* Choice sprite direction */
+        if(Direction > 0.01f) CharacterSprite.flipX = true;
+        if (Direction < 0.01f) CharacterSprite.flipX = false;
 
         rg2D.linearVelocity = new Vector2(Curve.Evaluate(Direction), rg2D.linearVelocity.y);
     }
