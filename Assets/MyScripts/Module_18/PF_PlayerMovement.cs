@@ -13,6 +13,7 @@ public class PF_PlayerMovement : PlayerMovement
     [SerializeField] private Transform GoundColliderTransform;
     [SerializeField] private float JumpOffset;
     [SerializeField] private LayerMask GroundMask;
+    [SerializeField] private SpriteRenderer CharacterSprite;
     private Rigidbody2D rg2D;
 
 
@@ -43,6 +44,18 @@ public class PF_PlayerMovement : PlayerMovement
 
     private void HorizontalMovement(float Direction) 
     {
+        if(Direction > 0.01f)
+        {
+            Debug.Log("Right");
+            CharacterSprite.flipX = true;
+        }
+
+        if (Direction < 0.01f)
+        {
+            Debug.Log("Left");
+            CharacterSprite.flipX = false;
+        }
+
         rg2D.linearVelocity = new Vector2(Curve.Evaluate(Direction), rg2D.linearVelocity.y);
     }
 }
