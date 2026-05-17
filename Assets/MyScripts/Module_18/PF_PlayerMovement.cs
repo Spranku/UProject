@@ -39,7 +39,6 @@ public class PF_PlayerMovement : PlayerMovement
 
     private void Death()
     {
-        Debug.Log("Death player");
         CharacterAnimator.SetBool("IsDeath", true);
     }
 
@@ -59,6 +58,7 @@ public class PF_PlayerMovement : PlayerMovement
         {
             /* Moving */
             HorizontalMovement(Direction);
+
             /* Lauch character walk animation */
             CharacterAnimator.SetBool("IsWalk", true);
         }

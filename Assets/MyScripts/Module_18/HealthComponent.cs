@@ -16,8 +16,9 @@ public class HealthComponent : MonoBehaviour
 
     public virtual void TakeDamage(float Damage)
     {
-        if (currentHealth >= Damage)
+        if (currentHealth >= 0)
             currentHealth -= Damage;
+
         CheckIsAlive();
     }
 
@@ -27,7 +28,6 @@ public class HealthComponent : MonoBehaviour
 
         if(!bIsAlive)
         {
-            Debug.Log(gameObject.name + "is death");
             OnDeath?.Invoke();
         }
     }
