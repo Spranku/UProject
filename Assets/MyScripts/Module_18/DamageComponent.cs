@@ -9,8 +9,6 @@ public class DamageComponent : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log(collision.name);
-
         if (collision.CompareTag("Damageable"))
         {
             collision.gameObject.GetComponent<HealthComponent>().TakeDamage(Damage);
