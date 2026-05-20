@@ -34,10 +34,13 @@ public class EnemyController : MonoBehaviour
         {
             if (TargetObjectToAttack != null)
             {
+
                 var HealthComp = TargetObjectToAttack.GetComponent<HealthComponent>();
                 if (HealthComp != null)
                 {
                     HealthComp.TakeDamage(10);
+                    
+                    
                 }
             }
             yield return new WaitForSeconds(0.5f);
