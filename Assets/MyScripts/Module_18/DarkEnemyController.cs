@@ -3,7 +3,7 @@ using System.Collections;
 
 public class DarkEnemyController : EnemyController
 {
-    [SerializeField] private Animator EnemyAnimator;
+    
     public ParticleSystem EnemyAttackVFX = null;
     private HealthComponent EnemyHealthComp;
 
