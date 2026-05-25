@@ -19,7 +19,6 @@ public class EnemyController : MonoBehaviour
 
     private float currentState, currentTimeToRevert;
 
-
     protected virtual void Start() 
     {
         currentState = WALK_STATE;
@@ -69,6 +68,16 @@ public class EnemyController : MonoBehaviour
                 attackCoroutine = StartCoroutine(DamageOverTime());
             }
 
+            SpriteRenderer TargetSprite = TargetObjectToAttack.GetComponent<SpriteRenderer>();
+            if(TargetSprite)
+            { 
+                if(TargetSprite.flipX && !EnemySprite.flipX)
+                {
+                    currentState = REVERT_STATE;
+                }
+
+            }
+
             /* Anim & VFX*/
             Attack();
         }
@@ -76,9 +85,8 @@ public class EnemyController : MonoBehaviour
         {
             currentState = IDLE_STATE;
         }
-
-        
     }
+    
 
     protected virtual IEnumerator DamageOverTime()
     {
