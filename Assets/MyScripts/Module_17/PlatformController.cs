@@ -21,7 +21,7 @@ public class PlatformController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(!bIsReturn &&  transform.position.x <= LeftXPosition)
+        if (!bIsReturn &&  transform.position.x <= LeftXPosition)
         {
             myMotor.motorSpeed = -1;
             myJoint.motor = myMotor;
@@ -33,6 +33,5 @@ public class PlatformController : MonoBehaviour
             myJoint.motor = myMotor;
             bIsReturn = false;
         }
-
     }
 }
