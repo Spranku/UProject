@@ -13,19 +13,26 @@ public class UIManager : MonoBehaviour
         GameObject Player = GameObject.FindGameObjectWithTag("Player");
         if(Player == null)
         {
-            Debug.Log("Player == null");
+            Debug.Log("UIManager - Player == null");
             return;
         }
 
         HealthComponent HealthComp = Player.GetComponent<HealthComponent>();
         if(HealthComp == null)
         {
-            Debug.Log("HealthComp == null");
+            Debug.Log("UIManager - HealthComp == null");
+            return;
+        }
+
+        var InventoryComp = Player.GetComponent<InventoryComp>();
+        if (InventoryComp == null)
+        {
+            Debug.Log("UIManager - InventoryComp == null");
             return;
         }
 
         /* Create model */
-        Model = new PlayerHUDModel(HealthComp);
+        Model = new PlayerHUDModel(HealthComp, InventoryComp);
 
         /* Create view model */
         ViewModel = new PlayerHUDViewModel(Model);
