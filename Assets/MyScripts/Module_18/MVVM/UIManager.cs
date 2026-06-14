@@ -4,6 +4,8 @@ using static UnityEditor.Profiling.HierarchyFrameDataView;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private PlayerHUDView HUDView;
+    [SerializeField] private AudioSource TargetAudioSource;
+    [SerializeField] private AudioClip EmbientSound;
 
     private PlayerHUDViewModel ViewModel;
     private PlayerHUDModel Model;
@@ -17,7 +19,29 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        HealthComponent HealthComp = Player.GetComponent<HealthComponent>();
+        if(EmbientSound != null)
+        {
+            //TargetAudioSource = GetComponent<AudioSource>();
+            if(TargetAudioSource)
+            {
+                TargetAudioSource.clip = EmbientSound;
+                TargetAudioSource.volume = 0.3f;
+                TargetAudioSource.loop = true;
+                TargetAudioSource.Play();
+                Debug.Log("Success play");
+            }
+            else
+            {
+                Debug.Log("TargetAudioSource null");
+            }
+        }
+        else
+        {
+            Debug.Log("EmbientSound null");
+        }
+
+
+            HealthComponent HealthComp = Player.GetComponent<HealthComponent>();
         if(HealthComp == null)
         {
             Debug.Log("UIManager - HealthComp == null");

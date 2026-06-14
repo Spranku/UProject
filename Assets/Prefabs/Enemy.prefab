@@ -4912,6 +4912,7 @@ GameObject:
   - component: {fileID: 3068104366655572690}
   - component: {fileID: 8779047640969469554}
   - component: {fileID: 6984057000404864515}
+  - component: {fileID: 5153826699404607494}
   m_Layer: 0
   m_Name: DarkEnemy
   m_TagString: Untagged
@@ -5188,6 +5189,40 @@ MonoBehaviour:
   FireSpeed: 10
   ShootPoint: {fileID: 4077771103489695857}
   ShooterAnimator: {fileID: 0}
+  LifeTime: 0.1
+--- !u!114 &5153826699404607494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3375056880724623990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba85cbeda4f75064696ba462d8b6dcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AudioComponent
+  myAudioSource: {fileID: 0}
+  AudioInfo:
+  - StateName: Attack
+    Sound:
+    - {fileID: 8300000, guid: 0c1742027c063a34aa5d0b4a6c3456dc, type: 3}
+    - {fileID: 8300000, guid: 3a48454e4a6549f46b46a96645da2139, type: 3}
+    - {fileID: 8300000, guid: 1a5fc3f54ca59d54db473891a2bf9f75, type: 3}
+  - StateName: Death
+    Sound:
+    - {fileID: 8300000, guid: a535d12f9221db24db66a188042c7cc2, type: 3}
+  - StateName: Wait
+    Sound:
+    - {fileID: 8300000, guid: 3c031e3119d62164cb1a019961d38df7, type: 3}
+    - {fileID: 8300000, guid: 7509b6f8a2aaac74cb52d1be5030862b, type: 3}
+    - {fileID: 8300000, guid: 83d7491abd632144c993d5dd44a3cb70, type: 3}
+  - StateName: FootStep
+    Sound:
+    - {fileID: 8300000, guid: 7096d4610f5c67c48814cad9e53737f8, type: 3}
+  - StateName: Kill
+    Sound:
+    - {fileID: 8300000, guid: 3f0b4ad1f04c469449582f718f290add, type: 3}
 --- !u!1 &4406155526266670954
 GameObject:
   m_ObjectHideFlags: 0
@@ -5213,7 +5248,7 @@ Transform:
   m_GameObject: {fileID: 4406155526266670954}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.1000004, y: 0.23999989, z: 0}
+  m_LocalPosition: {x: 5.03, y: -3.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

@@ -3,7 +3,6 @@ using System.Collections;
 
 public class DarkEnemyController : EnemyController
 {
-    
     public ParticleSystem EnemyAttackVFX = null;
     public ParticleSystem EnemyDeathVFX = null;
     public byte ScoresForKilling = 3;
@@ -13,6 +12,7 @@ public class DarkEnemyController : EnemyController
     protected override void Start()
     {
         EnemyHealthComp = GetComponent<HealthComponent>();
+
 
         /* Subscribe OnDeath event */
         if (EnemyHealthComp != null)

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -41,7 +42,14 @@ public class HealthComponent : MonoBehaviour
             currentHealth = 0;
             bIsAlive = false;
             OnDeath?.Invoke();
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
+            StartCoroutine(DestroyPlayer());
         }
+    }
+
+    private IEnumerator DestroyPlayer()
+    {
+        yield return new WaitForSeconds(2.0f);
+        gameObject.SetActive(false);
     }
 }
