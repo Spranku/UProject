@@ -6,8 +6,23 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Platformer/PF_Level0.unity
+    guid: 9eab25299d2b17445b4f9a36a75a7911
+  - enabled: 1
     path: Assets/Scenes/Platformer/PF_Level1.unity
     guid: 4d28f9d902c7c8b4db90becab7420058
+  - enabled: 1
+    path: Assets/Scenes/Platformer/PF_Level2.unity
+    guid: 197884c627d66b940bc01b0236464814
+  - enabled: 1
+    path: Assets/Scenes/Platformer/PS_Level3.unity
+    guid: 04e42cf07927a16459a85cae53fc22af
+  - enabled: 1
+    path: Assets/Scenes/Platformer/PF_Level4.unity
+    guid: 39a71de86876157469ff69a25904a858
+  - enabled: 1
+    path: Assets/Scenes/Platformer/PF_Level5.unity
+    guid: 63f7fac1dcb68974b9a18ac13af23657
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

@@ -32,7 +32,7 @@ public class PF_PlayerMovement : PlayerMovement
         }
     }
 
-    private void HandleDeath()
+    public void HandleDeath()
     {
         Death();
     }

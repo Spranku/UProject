@@ -89,7 +89,7 @@ public class DarkEnemyController : EnemyController
             var InventoryComponent = TargetObjectToAttack.GetComponentInParent<InventoryComp>();
             if (InventoryComponent != null)
             {
-                InventoryComponent.AddScore(ScoresForKilling);
+                InventoryComponent.AddScoresForKilling(ScoresForKilling);
             }
         }
 

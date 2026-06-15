@@ -41,14 +41,14 @@ public class UIManager : MonoBehaviour
         }
 
 
-            HealthComponent HealthComp = Player.GetComponent<HealthComponent>();
+        HealthComponent HealthComp = Player.GetComponentInParent<HealthComponent>();
         if(HealthComp == null)
         {
             Debug.Log("UIManager - HealthComp == null");
             return;
         }
 
-        var InventoryComp = Player.GetComponent<InventoryComp>();
+        var InventoryComp = Player.GetComponentInParent<InventoryComp>();
         if (InventoryComp == null)
         {
             Debug.Log("UIManager - InventoryComp == null");
