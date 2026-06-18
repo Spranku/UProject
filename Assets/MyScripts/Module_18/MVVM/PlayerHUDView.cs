@@ -15,10 +15,11 @@ public class PlayerHUDView : MonoBehaviour
         Pause
     }
 
+    [SerializeField] private SpriteRenderer BackgroundImage;
     [SerializeField] private Text healthText;
     [SerializeField] private Text scoreText;
     [SerializeField] private Slider healthSlider;
-    [SerializeField] private Image BackgroundImage;
+    [SerializeField] private Image BackgroundMenuImage;
     [SerializeField] private GameObject PauseWidget;
     [SerializeField] private GameObject HUDWidget;
     [SerializeField] private GameObject StatisticOwner;
@@ -27,8 +28,21 @@ public class PlayerHUDView : MonoBehaviour
     [SerializeField] private TextMeshProUGUI ScoreForEnemiesText;
     [SerializeField] private TextMeshProUGUI TotalScoresText;
 
-
+    private float t = 0f;
     private PlayerHUDViewModel ViewModel;
+
+    private void Update()
+    {
+        if (BackgroundImage != null)
+        {
+            t += Time.deltaTime * 0.1f;
+            float pingPong = Mathf.PingPong(t, 1f);
+
+            Color color = BackgroundImage.color;
+            color.a = Mathf.Lerp(1.0f, 0.95f, pingPong);
+            BackgroundImage.color = color;
+        }
+    }
 
     private void UpdateHealthText(string newText)
     {
@@ -75,7 +89,7 @@ public class PlayerHUDView : MonoBehaviour
         switch (inState)
         {
             case MenuState.Win:
-                if (BackgroundImage) BackgroundImage.gameObject.SetActive(true);
+                if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
                 if (PauseWidget) PauseWidget.gameObject.SetActive(true);
                 if(HUDWidget) HUDWidget.gameObject.SetActive(false);
                 /* Check last level */
@@ -90,21 +104,21 @@ public class PlayerHUDView : MonoBehaviour
                 }
                 break;
             case MenuState.Lose:
-                if (BackgroundImage) BackgroundImage.gameObject.SetActive(true);
+                if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
                 if (PauseWidget) PauseWidget.gameObject.SetActive(true);
                 if (NextButton) NextButton.gameObject.SetActive(false);
                 if (HUDWidget) HUDWidget.gameObject.SetActive(false);
                 break;
             case MenuState.Pause:
-                if(!BackgroundImage.IsActive())
+                if(!BackgroundMenuImage.IsActive())
                 {
-                    if (BackgroundImage) BackgroundImage.gameObject.SetActive(true);
+                    if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
                     if (PauseWidget) PauseWidget.gameObject.SetActive(true);
                     if (NextButton) NextButton.gameObject.SetActive(false);
                 }
                 else
                 {
-                    if (BackgroundImage) BackgroundImage.gameObject.SetActive(false);
+                    if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(false);
                     if (PauseWidget) PauseWidget.gameObject.SetActive(false);
                     if (NextButton) NextButton.gameObject.SetActive(false);
                     Time.timeScale = 1.0f;

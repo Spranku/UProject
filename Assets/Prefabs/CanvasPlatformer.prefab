@@ -1195,10 +1195,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8e55029f254d024582feb7dec0e3e71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHUDView
+  BackgroundImage: {fileID: 0}
   healthText: {fileID: 1513143468400352440}
   scoreText: {fileID: 5816958018859921571}
   healthSlider: {fileID: 8369095710872049315}
-  BackgroundImage: {fileID: 3524987583981450802}
+  BackgroundMenuImage: {fileID: 3524987583981450802}
   PauseWidget: {fileID: 4599075519777132482}
   HUDWidget: {fileID: 998443436619298340}
   StatisticOwner: {fileID: 0}

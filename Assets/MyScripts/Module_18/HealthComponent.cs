@@ -2,6 +2,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 using UnityEditor.Animations;
+using UnityEngine.UIElements;
 
 public class HealthComponent : MonoBehaviour
 {
@@ -44,7 +45,13 @@ public class HealthComponent : MonoBehaviour
             currentHealth = 0;
             bIsAlive = false;
             OnDeath?.Invoke();
-            //gameObject.SetActive(false);
+
+            var InputComp = gameObject.GetComponentInParent<PF_PlayerInput>();
+            if (InputComp)
+            {
+                InputComp.CanMove = false;
+            }
+
             StartCoroutine(DestroyPlayer());
         }
     }

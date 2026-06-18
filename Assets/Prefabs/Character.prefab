@@ -221,7 +221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a2eb6e562e87a45b34497a66592e37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PF_PlayerInput
-  CanMove: 0
+  CanMove: 1
   playerMovement: {fileID: 7141036813405933548}
 --- !u!114 &7102175326540770886
 MonoBehaviour:
@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42195758629284d4d85d4eb2a30d9172, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HealthComponent
+  View: {fileID: 0}
   maxHealth: 100
 --- !u!114 &4834642666747334965
 MonoBehaviour:

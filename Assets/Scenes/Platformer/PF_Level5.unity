@@ -4779,6 +4779,10 @@ PrefabInstance:
       propertyPath: StatisticOwner
       value: 
       objectReference: {fileID: 1761138406}
+    - target: {fileID: 2994315983867434827, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: BackgroundImage
+      value: 
+      objectReference: {fileID: 1642017460}
     - target: {fileID: 3689922556406104666, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
       propertyPath: m_Pivot.x
       value: 0

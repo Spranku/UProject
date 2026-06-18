@@ -23,7 +23,7 @@ public class PF_PlayerInput : PlayerInput
         {
             ShooterComp.Shoot(horizontalDirection);
         }
-
-        playerMovement.Move(horizontalDirection, isJumpButtonPressed);
+        if(CanMove)
+            playerMovement.Move(horizontalDirection, isJumpButtonPressed);
     }
 }
