@@ -21,7 +21,6 @@ public class UIManager : MonoBehaviour
 
         if(EmbientSound != null)
         {
-            //TargetAudioSource = GetComponent<AudioSource>();
             if(TargetAudioSource)
             {
                 TargetAudioSource.clip = EmbientSound;

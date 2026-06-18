@@ -81,7 +81,9 @@ public class PlayerHUDView : MonoBehaviour
                 /* Check last level */
                 if (NextButton && SceneManager.GetActiveScene().buildIndex >= 4)
                 {
+                    UnityEngine.Debug.Log("LastLevel");
                     NextButton.gameObject.SetActive(false);
+                    
                 }
                 else
                 {
