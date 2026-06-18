@@ -84,9 +84,9 @@ public class DarkEnemyController : EnemyController
         if (DeathCollision != null) DeathCollision.enabled = false;
 
         /* Add score by death enemy */
-        if(TargetObjectToAttack != null)
+        if(currentTarget != null)
         {
-            var InventoryComponent = TargetObjectToAttack.GetComponentInParent<InventoryComp>();
+            var InventoryComponent = currentTarget.GetComponentInParent<InventoryComp>();
             if (InventoryComponent != null)
             {
                 InventoryComponent.AddScoresForKilling(ScoresForKilling);

@@ -5028,7 +5028,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 30
+  m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -5140,9 +5140,9 @@ MonoBehaviour:
   rb: {fileID: 208202785716485815}
   EnemyAnimator: {fileID: 7733979945575916263}
   Speed: 3
-  TimeToRevert: 3
-  TargetObjectToAttack: {fileID: 0}
+  IdleTime: 2
   EnemySprite: {fileID: 7695107469580123044}
+  currentTarget: {fileID: 0}
   EnemyAttackVFX: {fileID: 3020169240837046312}
   EnemyDeathVFX: {fileID: 3340851691496817983}
   ScoresForKilling: 3

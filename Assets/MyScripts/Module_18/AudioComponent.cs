@@ -51,6 +51,9 @@ public class AudioComponent : MonoBehaviour
         /* Choice random sound */
         var SoundToPlay = SoundClipsToPlay[Random.Range(0, SoundClipsToPlay.Length)];
         /* Play */
-        myAudioSource.PlayOneShot(SoundToPlay);       
+        if (myAudioSource)
+        {
+            myAudioSource.PlayOneShot(SoundToPlay);
+        }
     }
 }
