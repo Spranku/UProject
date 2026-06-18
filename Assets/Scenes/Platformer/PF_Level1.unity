@@ -12598,6 +12598,10 @@ PrefabInstance:
       propertyPath: Bullet
       value: 
       objectReference: {fileID: 1520646029}
+    - target: {fileID: 7102175326540770886, guid: 114339a7e7037584e996981bebf7bb3e, type: 3}
+      propertyPath: View
+      value: 
+      objectReference: {fileID: 704863517}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

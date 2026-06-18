@@ -1,9 +1,11 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEditor.Animations;
 
 public class HealthComponent : MonoBehaviour
 {
+    [SerializeField] protected PlayerHUDView View;
     [SerializeField] protected float maxHealth;
 
     public float MaxHealth => maxHealth;
@@ -50,6 +52,8 @@ public class HealthComponent : MonoBehaviour
     private IEnumerator DestroyPlayer()
     {
         yield return new WaitForSeconds(2.0f);
+        /* Show lose widget */
+        if (View) View.PauseGame(PlayerHUDView.MenuState.Lose);
         gameObject.SetActive(false);
     }
 }
