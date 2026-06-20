@@ -3,20 +3,20 @@ using UnityEngine;
 
 namespace WildBall.Inputs
 {
-    [RequireComponent(typeof(PlayerMovement))]
+    //[RequireComponent(typeof(PlayerMovement))]
     public class PlayerInput : MonoBehaviour
     {
         public bool CanMove = false;
         private Vector3 Movement;
-        private PlayerMovement PlayerMovement;
+        public PlayerMovement playerMovement;
 
-        private void Awake()
+        public virtual void Awake()
         {
-            PlayerMovement = GetComponent<PlayerMovement>();
+            playerMovement = GetComponent<PlayerMovement>();
         }
 
         // Update is called once per frame
-        void Update()
+        public virtual void Update()
         {
             float Horizntal = Input.GetAxis(GlobalStringVars.HORIZONTAL_AXIS);
             float Vertical = Input.GetAxis(GlobalStringVars.VERTICAL_AXIS);
@@ -26,7 +26,7 @@ namespace WildBall.Inputs
 
         private void FixedUpdate()
         {
-            PlayerMovement.MoveCharacter(Movement);
+            playerMovement.MoveCharacter(Movement);
         }
     }
 }
