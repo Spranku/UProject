@@ -25,6 +25,12 @@ public class CoinController : MonoBehaviour
                 InventoryComponent.AddScore(Cost);
             }
 
+            var HealthComp = collision.gameObject.GetComponentInParent<HealthComponent>();
+            if(HealthComp)
+            {
+                HealthComp.AddHealing(30.0f);
+            }
+
             /* Lauch VFX & sound */
             Anim.SetBool("Alive", false);
             Anim.SetTrigger("Collect");

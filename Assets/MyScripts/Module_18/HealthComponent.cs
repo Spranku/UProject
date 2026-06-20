@@ -38,6 +38,17 @@ public class HealthComponent : MonoBehaviour
         CheckIsAlive();
     }
 
+    public virtual void AddHealing(float HealingAmount)
+    {
+        if (!bIsAlive) return;
+
+        if (currentHealth >= maxHealth) return;
+
+        currentHealth = Mathf.Min(currentHealth + HealingAmount, maxHealth);
+
+        OnHealthChanged?.Invoke(currentHealth);
+    }
+
     private void CheckIsAlive() 
     {
         if (currentHealth <= 0)

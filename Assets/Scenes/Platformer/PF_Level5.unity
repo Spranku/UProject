@@ -3619,11 +3619,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4599093319760505554, guid: 114339a7e7037584e996981bebf7bb3e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 66.03
+      value: 39.06
       objectReference: {fileID: 0}
     - target: {fileID: 4599093319760505554, guid: 114339a7e7037584e996981bebf7bb3e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.43
+      value: 25.6
       objectReference: {fileID: 0}
     - target: {fileID: 4599093319760505554, guid: 114339a7e7037584e996981bebf7bb3e, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3661,6 +3661,10 @@ PrefabInstance:
       propertyPath: Bullet
       value: 
       objectReference: {fileID: 1061255767}
+    - target: {fileID: 6123096356146826435, guid: 114339a7e7037584e996981bebf7bb3e, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7102175326540770886, guid: 114339a7e7037584e996981bebf7bb3e, type: 3}
       propertyPath: View
       value: 
@@ -3819,6 +3823,7 @@ MonoBehaviour:
   - '-You are win and escape from caves '
   - '-Great job! '
   - -Look at your progress and upgrade it if you want
+  - -Good luck!
   DialogText: {fileID: 1656717459}
 --- !u!61 &1178580488
 BoxCollider2D:
@@ -5565,7 +5570,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1695539148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7082,7 +7087,7 @@ Transform:
   m_GameObject: {fileID: 1933356757}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.03, y: 5.43, z: -10}
+  m_LocalPosition: {x: 39.06, y: 25.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7265,7 +7270,7 @@ Transform:
   m_GameObject: {fileID: 2053199667}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 66.03, y: 5.43, z: -10}
+  m_LocalPosition: {x: 39.06, y: 25.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
