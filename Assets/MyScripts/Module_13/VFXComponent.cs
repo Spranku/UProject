@@ -58,6 +58,14 @@ public class VFXComponent : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Player") && CurrentActivationType == ActivationType.Trigger && TriggerObject != null)
+        {
+            LaunchVFX();
+        }
+    }
+
     /* Launch by duration */
     private IEnumerator Timer(float Time)
     {

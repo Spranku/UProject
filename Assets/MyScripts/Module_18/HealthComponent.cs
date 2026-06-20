@@ -1,8 +1,11 @@
 using UnityEngine;
 using System;
+using System.Collections;
+using UnityEngine.UI;
 
 public class HealthComponent : MonoBehaviour
 {
+    [SerializeField] protected PlayerHUDView View;
     [SerializeField] protected float maxHealth;
 
     public float MaxHealth => maxHealth;
@@ -34,6 +37,17 @@ public class HealthComponent : MonoBehaviour
         CheckIsAlive();
     }
 
+    public virtual void AddHealing(float HealingAmount)
+    {
+        if (!bIsAlive) return;
+
+        if (currentHealth >= maxHealth) return;
+
+        currentHealth = Mathf.Min(currentHealth + HealingAmount, maxHealth);
+
+        OnHealthChanged?.Invoke(currentHealth);
+    }
+
     private void CheckIsAlive() 
     {
         if (currentHealth <= 0)
@@ -41,7 +55,22 @@ public class HealthComponent : MonoBehaviour
             currentHealth = 0;
             bIsAlive = false;
             OnDeath?.Invoke();
-            gameObject.SetActive(false);
+
+            var InputComp = gameObject.GetComponentInParent<PF_PlayerInput>();
+            if (InputComp)
+            {
+                InputComp.CanMove = false;
+            }
+
+            StartCoroutine(DestroyPlayer());
         }
+    }
+
+    private IEnumerator DestroyPlayer()
+    {
+        yield return new WaitForSeconds(2.0f);
+        /* Show lose widget */
+        if (View) View.PauseGame(PlayerHUDView.MenuState.Lose);
+        gameObject.SetActive(false);
     }
 }

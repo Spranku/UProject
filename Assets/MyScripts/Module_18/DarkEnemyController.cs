@@ -3,14 +3,16 @@ using System.Collections;
 
 public class DarkEnemyController : EnemyController
 {
-    [SerializeField] private Animator EnemyAnimator;
     public ParticleSystem EnemyAttackVFX = null;
+    public ParticleSystem EnemyDeathVFX = null;
+    public byte ScoresForKilling = 3;
     private HealthComponent EnemyHealthComp;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     protected override void Start()
     {
         EnemyHealthComp = GetComponent<HealthComponent>();
+
 
         /* Subscribe OnDeath event */
         if (EnemyHealthComp != null)
@@ -65,6 +67,12 @@ public class DarkEnemyController : EnemyController
         /* Change anim state */
         EnemyAnimator.SetBool("IsDeath", true);
 
+        if(EnemyDeathVFX != null)
+        {
+            EnemyDeathVFX.Clear();
+            EnemyDeathVFX.Play();
+        }
+
         /* Disble VFX */
         if (EnemyAttackVFX != null)
         {
@@ -75,12 +83,22 @@ public class DarkEnemyController : EnemyController
         var DeathCollision = gameObject.GetComponent<BoxCollider2D>();
         if (DeathCollision != null) DeathCollision.enabled = false;
 
+        /* Add score by death enemy */
+        if(currentTarget != null)
+        {
+            var InventoryComponent = currentTarget.GetComponentInParent<InventoryComp>();
+            if (InventoryComponent != null)
+            {
+                InventoryComponent.AddScoresForKilling(ScoresForKilling);
+            }
+        }
+
         /* Timer to delete object */
         var DeathCoroutine = StartCoroutine(DestroyTimer());
     }
 
     private IEnumerator DestroyTimer()
-    {
+    { 
         yield return new WaitForSeconds(3.0f);
         gameObject.SetActive(false);
     }

@@ -1,20 +1,59 @@
+using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
+using static PlayerHUDView;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerHUDView : MonoBehaviour
 {
-    [SerializeField] private Text healthText;
-    [SerializeField] private Slider healthSlider;
+    public enum MenuState
+    {
+        Win,
+        Lose,
+        Pause
+    }
 
+    [SerializeField] private SpriteRenderer BackgroundImage;
+    [SerializeField] private Text healthText;
+    [SerializeField] private Text scoreText;
+    [SerializeField] private Slider healthSlider;
+    [SerializeField] private Image BackgroundMenuImage;
+    [SerializeField] private GameObject PauseWidget;
+    [SerializeField] private GameObject HUDWidget;
+    [SerializeField] private GameObject StatisticOwner;
+    [SerializeField] private Button NextButton;
+    [SerializeField] private TextMeshProUGUI ScoreForCoinsText;
+    [SerializeField] private TextMeshProUGUI ScoreForEnemiesText;
+    [SerializeField] private TextMeshProUGUI TotalScoresText;
+
+    private float t = 0f;
     private PlayerHUDViewModel ViewModel;
 
-    private void UpdateText(string newText)
+    private void Update()
+    {
+        if (BackgroundImage != null)
+        {
+            t += Time.deltaTime * 0.1f;
+            float pingPong = Mathf.PingPong(t, 1f);
+
+            Color color = BackgroundImage.color;
+            color.a = Mathf.Lerp(1.0f, 0.95f, pingPong);
+            BackgroundImage.color = color;
+        }
+    }
+
+    private void UpdateHealthText(string newText)
     {
         healthText.text = newText;
     }
 
-    private void UpdateSlider(float newValue)
+    private void UpdateScoreText(string NewScoreText)
+    {
+        scoreText.text = NewScoreText;
+    }
+
+    private void UpdateHealthSlider(float newValue)
     {
         healthSlider.value = newValue;
     }
@@ -32,12 +71,107 @@ public class PlayerHUDView : MonoBehaviour
 
         /* Start init */
         healthText.text = NewViewModel.HealthText.Value;
+        scoreText.text = NewViewModel.ScoreText.Value;
         healthSlider.value = NewViewModel.HealthPercent.Value;
 
         /* Bind events */
-        NewViewModel.HealthText.OnValueChanged += UpdateText;
-        NewViewModel.HealthPercent.OnValueChanged += UpdateSlider;
+        NewViewModel.HealthText.OnValueChanged += UpdateHealthText;
+        NewViewModel.ScoreText.OnValueChanged += UpdateScoreText;
+        NewViewModel.HealthPercent.OnValueChanged += UpdateHealthSlider;
         NewViewModel.OnDeath += ShowDeathNotification;
+    }
+
+    public void PauseGame(MenuState inState)
+    {
+        Time.timeScale = 0.0f;
+
+        switch (inState)
+        {
+            case MenuState.Win:
+                if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
+                if (PauseWidget) PauseWidget.gameObject.SetActive(true);
+                HideHUD();
+                /* Check last level */
+                if (NextButton && SceneManager.GetActiveScene().buildIndex >= 5)
+                {
+                    NextButton.gameObject.SetActive(false);
+                    
+                }
+                else
+                {
+                    NextButton.gameObject.SetActive(true);
+                }
+                break;
+            case MenuState.Lose:
+                if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
+                if (PauseWidget) PauseWidget.gameObject.SetActive(true);
+                if (NextButton) NextButton.gameObject.SetActive(false);
+                HideHUD();
+                break;
+            case MenuState.Pause:
+                if(!BackgroundMenuImage.IsActive())
+                {
+                    if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
+                    if (PauseWidget) PauseWidget.gameObject.SetActive(true);
+                    if (NextButton) NextButton.gameObject.SetActive(false);
+                }
+                else
+                {
+                    if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(false);
+                    if (PauseWidget) PauseWidget.gameObject.SetActive(false);
+                    if (NextButton) NextButton.gameObject.SetActive(false);
+                    Time.timeScale = 1.0f;
+                }
+                break;
+            default:
+                break;
+        }
+        ShowStats();
+    }
+    
+    public void HideHUD()
+    {
+        if (HUDWidget) HUDWidget.gameObject.SetActive(false);
+    }
+
+    public void ShowStats()
+    {
+        if(StatisticOwner && TotalScoresText && ScoreForCoinsText && ScoreForEnemiesText)
+        {
+            var InventoryComp = StatisticOwner.gameObject.GetComponentInParent<InventoryComp>();
+            if(InventoryComp)
+            {
+                TotalScoresText.text = InventoryComp.GetTotalScores().ToString();
+                ScoreForCoinsText.text = InventoryComp.GetCurrentScore().ToString();
+                ScoreForEnemiesText.text = InventoryComp.GetScoreForKilling().ToString();
+            }
+        }
+    }
+
+    public void OnPauseButtonPressed()
+    {
+        PauseGame(MenuState.Pause);
+    }
+
+    public void OnBackToMenuButtonPressed()
+    {
+        UnityEngine.Debug.Log("OnBackToMenuButtonPressed");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
+
+    public void OnNextButtonPressed()
+    {
+        UnityEngine.Debug.Log("OnNextButtonPressed");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+    }
+
+    public void OnRetryButtonPressed()
+    {
+        UnityEngine.Debug.Log("OnRetryButtonPressed");
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnDestroy()
@@ -45,8 +179,9 @@ public class PlayerHUDView : MonoBehaviour
         if (ViewModel != null)
         {
             /* Unbind */
-            ViewModel.HealthText.OnValueChanged -= UpdateText;
-            ViewModel.HealthPercent.OnValueChanged -= UpdateSlider;
+            ViewModel.HealthText.OnValueChanged -= UpdateHealthText;
+            ViewModel.HealthText.OnValueChanged -= UpdateScoreText;
+            ViewModel.HealthPercent.OnValueChanged -= UpdateHealthSlider;
             ViewModel.OnDeath -= ShowDeathNotification;
         }
     }

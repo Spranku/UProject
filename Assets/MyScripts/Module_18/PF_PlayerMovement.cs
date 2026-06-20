@@ -1,5 +1,6 @@
 using UnityEngine;
 using WildBall.Inputs;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class PF_PlayerMovement : PlayerMovement
@@ -18,7 +19,6 @@ public class PF_PlayerMovement : PlayerMovement
     private HealthComponent PlayerHealthComp;
     private Rigidbody2D rg2D;
 
-
     public override void Awake()
     {
         rg2D = GetComponent<Rigidbody2D>();
@@ -32,7 +32,7 @@ public class PF_PlayerMovement : PlayerMovement
         }
     }
 
-    private void HandleDeath()
+    public void HandleDeath()
     {
         Death();
     }
