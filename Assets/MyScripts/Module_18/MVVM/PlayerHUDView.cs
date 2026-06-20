@@ -91,7 +91,7 @@ public class PlayerHUDView : MonoBehaviour
             case MenuState.Win:
                 if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
                 if (PauseWidget) PauseWidget.gameObject.SetActive(true);
-                if(HUDWidget) HUDWidget.gameObject.SetActive(false);
+                HideHUD();
                 /* Check last level */
                 if (NextButton && SceneManager.GetActiveScene().buildIndex >= 4)
                 {
@@ -107,7 +107,7 @@ public class PlayerHUDView : MonoBehaviour
                 if (BackgroundMenuImage) BackgroundMenuImage.gameObject.SetActive(true);
                 if (PauseWidget) PauseWidget.gameObject.SetActive(true);
                 if (NextButton) NextButton.gameObject.SetActive(false);
-                if (HUDWidget) HUDWidget.gameObject.SetActive(false);
+                HideHUD();
                 break;
             case MenuState.Pause:
                 if(!BackgroundMenuImage.IsActive())
@@ -128,6 +128,11 @@ public class PlayerHUDView : MonoBehaviour
                 break;
         }
         ShowStats();
+    }
+    
+    public void HideHUD()
+    {
+        if (HUDWidget) HUDWidget.gameObject.SetActive(false);
     }
 
     public void ShowStats()
