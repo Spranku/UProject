@@ -4183,11 +4183,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a76a572c47e624b82c6a1ac1c5014f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuView
+  FirstMenuEnemy: {fileID: 1586233499}
+  SecondMenuEnemy: {fileID: 31978236}
   BackgroundImage: {fileID: 1094288740}
   MenuSound: {fileID: 8300000, guid: 32b736025df702e47a6cec5052646fa2, type: 3}
   Source: {fileID: 2000311571}
   PlayButton: {fileID: 1873772432}
   ExitButton: {fileID: 1768270295}
+  minDelay: 1
+  maxDelay: 4
   speed: 0.1
 --- !u!82 &2000311571
 AudioSource:

@@ -1711,11 +1711,11 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_MaskInteraction: 0
   m_Sprite: {fileID: 1505848579308300010, guid: b64e9319f0a231945a9067c036ef1b2f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 2.0900002, y: 3.0907547}
@@ -1732,7 +1732,7 @@ Transform:
   m_GameObject: {fileID: 478574314}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 83.28, y: 7.56, z: 0}
+  m_LocalPosition: {x: 83.8, y: 7.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5075,6 +5075,54 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5101500815414255193, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638825773785526049, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638825773785526049, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638825773785526049, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6638825773785526049, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906228871160552591, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906228871160552591, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906228871160552591, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6906228871160552591, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601958462084609301, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601958462084609301, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601958462084609301, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7601958462084609301, guid: f8a774bbcc3a0e44bbe13a1d8a085c51, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}

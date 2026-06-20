@@ -2,7 +2,6 @@ using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.UI;
 using static PlayerHUDView;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
 using UnityEngine.SceneManagement;
 using TMPro;
 
@@ -93,7 +92,7 @@ public class PlayerHUDView : MonoBehaviour
                 if (PauseWidget) PauseWidget.gameObject.SetActive(true);
                 HideHUD();
                 /* Check last level */
-                if (NextButton && SceneManager.GetActiveScene().buildIndex >= 4)
+                if (NextButton && SceneManager.GetActiveScene().buildIndex >= 5)
                 {
                     NextButton.gameObject.SetActive(false);
                     

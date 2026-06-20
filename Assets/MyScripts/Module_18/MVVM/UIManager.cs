@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Profiling.HierarchyFrameDataView;
 
 public class UIManager : MonoBehaviour
 {

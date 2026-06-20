@@ -1,8 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using UnityEditor.Animations;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class HealthComponent : MonoBehaviour
 {
