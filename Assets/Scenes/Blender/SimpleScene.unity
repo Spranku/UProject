@@ -119,6 +119,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &67137458 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7d4519b4dd35f1a44b8d31e03c0a6505, type: 3}
+  m_PrefabInstance: {fileID: 1507126877}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &92040599
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,6 +1475,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69c666472305ff049a741665a8b09f11, type: 3}
+--- !u!1 &1028483124 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 139abc6dc23fcdb479b0acbfb61b1039, type: 3}
+  m_PrefabInstance: {fileID: 701001506}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1041385171
 GameObject:
   m_ObjectHideFlags: 0
@@ -2432,9 +2442,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inputs
   Character: {fileID: 273214621}
+  Weapons:
+  - {fileID: 1933860878}
+  - {fileID: 1028483124}
+  - {fileID: 67137458}
   HUD: {fileID: 1701386559}
   CharacterAnimator: {fileID: 273214623}
-  inputActionReference: {fileID: 4554199958359523495, guid: 9e6611c2c76b866428b523e9028e3636, type: 3}
 --- !u!114 &1669781393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2842,6 +2855,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1776280889}
   m_CullTransparentMesh: 1
+--- !u!1 &1933860878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4a4d7d54d147c1148be80d69dae333c5, type: 3}
+  m_PrefabInstance: {fileID: 1095461676}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1947375964
 GameObject:
   m_ObjectHideFlags: 0
