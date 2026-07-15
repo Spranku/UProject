@@ -1,19 +1,29 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class Inputs : MonoBehaviour
 {
-    public bool Num1;
-    public bool Num2;
-    public bool Num3;
-    public bool Num4;
-    public bool Num5;
-
+    [SerializeField]
+    public GameObject Character;
     [SerializeField]
     public TestHUD HUD;
-
     [SerializeField]
     public Animator CharacterAnimator;
+
+    private void Update()
+    {
+        float scrollDelta = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollDelta > 0)
+        {
+            Debug.Log("MouseUp");
+        }
+        else if (scrollDelta < 0)
+        {
+            Debug.Log("MouseDown");
+        }
+    }
 
     public void OnNum1(InputValue value)
     {
@@ -69,4 +79,5 @@ public class Inputs : MonoBehaviour
         CharacterAnimator.SetBool("Num3", false);
         CharacterAnimator.SetBool("Num4", false);
     }
+
 }

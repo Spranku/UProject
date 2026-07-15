@@ -2431,13 +2431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63c60499daf327942a608b36ab66fd75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Inputs
-  Num1: 0
-  Num2: 0
-  Num3: 0
-  Num4: 0
-  Num5: 0
+  Character: {fileID: 273214621}
   HUD: {fileID: 1701386559}
   CharacterAnimator: {fileID: 273214623}
+  inputActionReference: {fileID: 4554199958359523495, guid: 9e6611c2c76b866428b523e9028e3636, type: 3}
 --- !u!114 &1669781393
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2455,14 +2452,50 @@ MonoBehaviour:
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ae0c4b6d-e971-4a5c-b37d-5922629bbf55
+    m_ActionName: 'CustomPlayer/Num1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 28aa63ca-9789-4f62-ab07-3fd9a02a9d3c
+    m_ActionName: 'CustomPlayer/Num2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4c3ae172-c0c9-44a7-8f4a-37d481961259
+    m_ActionName: 'CustomPlayer/Num3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3282454e-d148-440e-9c7b-d3c3f8b85308
+    m_ActionName: 'CustomPlayer/Num4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2972514e-bd8d-49d1-b7de-e72b02ee8221
+    m_ActionName: 'CustomPlayer/Num5[/Keyboard/5]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: cb6ec0c7-a2f2-48fc-a72b-152bf53ae507
+    m_ActionName: 'CustomPlayer/OnMouseUp[/Mouse/scroll/up]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: CustomPlayer
