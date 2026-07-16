@@ -24,5 +24,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Platformer/PF_Level5.unity
     guid: 63f7fac1dcb68974b9a18ac13af23657
   m_configObjects:
+    com.unity.input.settings: {fileID: 11400000, guid: c3cf921e60db8d045a1677eaf09a6a25, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
