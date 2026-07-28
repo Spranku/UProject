@@ -80,6 +80,7 @@ mono_crash.*
 /Packages
 /Assets/WorldMaterialsFree
 /Assets/Cainos
+/Assets/FreeOpenBuilding_1.1.2
 
 # Crashlytics generated file
 crashlytics-build.properties
