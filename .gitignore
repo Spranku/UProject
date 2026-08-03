@@ -81,6 +81,7 @@ mono_crash.*
 /Assets/WorldMaterialsFree
 /Assets/Cainos
 /Assets/FreeOpenBuilding_1.1.2
+/Assets/FolderColor
 
 # Crashlytics generated file
 crashlytics-build.properties
