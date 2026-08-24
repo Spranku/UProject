@@ -1099,7 +1099,7 @@ GameObject:
   - component: {fileID: 483699932}
   - component: {fileID: 483699931}
   - component: {fileID: 483699935}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: DollyCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1336,7 +1336,7 @@ GameObject:
   - component: {fileID: 515742163}
   - component: {fileID: 515742164}
   - component: {fileID: 515742165}
-  m_Layer: 3
+  m_Layer: 0
   m_Name: MainCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1364,7 @@ MonoBehaviour:
   m_VolumeLayerMask:
     serializedVersion: 2
     m_Bits: 8
-  m_VolumeTrigger: {fileID: 0}
+  m_VolumeTrigger: {fileID: 946441876}
   m_VolumeFrameworkUpdateModeOption: 2
   m_RenderPostProcessing: 1
   m_Antialiasing: 1
@@ -2360,9 +2360,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 946441876}
-  - component: {fileID: 946441875}
   - component: {fileID: 946441874}
-  m_Layer: 3
+  - component: {fileID: 946441877}
+  m_Layer: 0
   m_Name: LocalVolume1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2384,29 +2384,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &946441875
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 946441873}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Postprocessing.Runtime::UnityEngine.Rendering.PostProcessing.PostProcessVolume
-  sharedProfile: {fileID: 11400000, guid: 1725b74ada8272a4facb78a50025cbcd, type: 2}
-  isGlobal: 0
-  blendDistance: 134.44
-  weight: 1
-  priority: 1
 --- !u!4 &946441876
 Transform:
   m_ObjectHideFlags: 0
@@ -2416,12 +2399,29 @@ Transform:
   m_GameObject: {fileID: 946441873}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 65.38, y: 2.51, z: 42.86}
+  m_LocalPosition: {x: 31.46, y: 2.51, z: 43.18}
   m_LocalScale: {x: 10.772, y: 10.772, z: 10.772}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &946441877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946441873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
+  m_IsGlobal: 0
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 532d43885054f484babe77d82ac31a0e, type: 2}
 --- !u!1 &976825724 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8246547302835722406, guid: 7961d5d64350968438e53e5349630794, type: 3}
@@ -3748,7 +3748,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1666775665}
   - component: {fileID: 1666775664}
-  m_Layer: 0
+  - component: {fileID: 1666775666}
+  m_Layer: 3
   m_Name: VirtualCam_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3813,6 +3814,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 234856135}
   m_LocalEulerAnglesHint: {x: 10.45, y: -36.351, z: -0.169}
+--- !u!114 &1666775666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666775663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 449ef5ebbe24720439ec31d15f7b6f3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineVolumeSettings
+  Weight: 1
+  FocusTracking: 0
+  FocusTarget: {fileID: 0}
+  FocusOffset: 0
+  Profile: {fileID: 11400000, guid: e5d8b27f84990ff47880bac5c7593db0, type: 2}
 --- !u!1 &1760188102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3965,8 +3983,8 @@ MonoBehaviour:
       Rotation:
         value:
           x: 0.22837588
-          y: -2.3923394e-10
-          z: 0.02568654
+          y: -7.177018e-10
+          z: 0.025686547
           w: 0.97323406
     m_MetaData:
     - Mode: 2
