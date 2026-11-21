@@ -24,6 +24,6 @@ public class InputHandler : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(IsThereTouchOnScreen() + " touch on screen");
+        //Debug.Log(IsThereTouchOnScreen() + " touch on screen");
     }
 }
