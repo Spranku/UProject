@@ -17,7 +17,7 @@ public class InputHandler : MonoBehaviour
     {
         if(Input.touchCount > 0)
         {
-            return Input. GetTouch(0).position;
+            return Input.GetTouch(0).deltaPosition;
         }
         return Vector2.zero;
     }
