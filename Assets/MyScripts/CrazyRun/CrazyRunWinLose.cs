@@ -24,11 +24,13 @@ public class CrazyRunWinLose : MonoBehaviour
 
             winLoseText.text = "You are won!";
             buttonText.text = "Next level";
+            Debug.Log("Won");
         }
         else
         {
             winLoseText.text = "Fail!";
             buttonText.text = "Try again";
+            Debug.Log("Loose");
         }
     }
 
